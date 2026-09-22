@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+<rect width="390" height="844" fill="#F6F8FB"/>
+<!-- status bar -->
+<text x="24" y="30" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#142034">9:41</text>
+<text x="350" y="30" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="12" fill="#536174">● ● ▰</text>
+<!-- app header -->
+<rect x="0" y="48" width="390" height="70" fill="#FFFFFF"/>
+<text x="24" y="78" font-family="Inter,Arial,sans-serif" font-size="12" fill="#6B7789">NoiseFit</text>
+<text x="24" y="101" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="750" fill="#142034">Sync Center</text>
+<text x="366" y="92" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="12" fill="#2F67DA">⌄</text>
+<!-- content -->
+
+<rect x="20" y="136" width="350" height="158" rx="18" fill="#EEF9F3" stroke="#C8E7D5"/>
+<circle cx="195" cy="174" r="28" fill="#D9F2E4"/>
+<text x="195" y="184" text-anchor="middle" font-family="Arial" font-size="25" font-weight="700" fill="#198754">✓</text>
+<text x="195" y="222" text-anchor="middle" font-family="Inter,Arial" font-size="17" font-weight="700" fill="#142034">Sync complete</text>
+<text x="195" y="246" text-anchor="middle" font-family="Inter,Arial" font-size="12" fill="#687384">Your missing data has been restored.</text>
+<text x="195" y="268" text-anchor="middle" font-family="Inter,Arial" font-size="11" fill="#687384">Completed · Today, 9:43 AM</text>
+<text x="20" y="330" font-family="Inter,Arial" font-size="14" font-weight="700" fill="#142034">Restored data</text>
+<rect x="20" y="346" width="350" height="150" rx="18" fill="#FFFFFF" stroke="#E3E8F0"/>
+<text x="44" y="380" font-family="Inter,Arial" font-size="12" fill="#687384">Sleep</text><text x="342" y="380" text-anchor="end" font-family="Inter,Arial" font-size="12" font-weight="700" fill="#198754">Restored ✓</text>
+<line x1="44" y1="398" x2="342" y2="398" stroke="#E7ECF3"/>
+<text x="44" y="430" font-family="Inter,Arial" font-size="12" fill="#687384">Workouts</text><text x="342" y="430" text-anchor="end" font-family="Inter,Arial" font-size="12" font-weight="700" fill="#198754">Confirmed ✓</text>
+<line x1="44" y1="448" x2="342" y2="448" stroke="#E7ECF3"/>
+<text x="44" y="480" font-family="Inter,Arial" font-size="12" fill="#687384">Health metrics</text><text x="342" y="480" text-anchor="end" font-family="Inter,Arial" font-size="12" font-weight="700" fill="#198754">Confirmed ✓</text>
+<rect x="20" y="530" width="350" height="48" rx="14" fill="#2F67DA"/>
+<text x="195" y="560" text-anchor="middle" font-family="Inter,Arial" font-size="13" font-weight="700" fill="#FFFFFF">Back to home</text>
+<text x="195" y="608" text-anchor="middle" font-family="Inter,Arial" font-size="11" fill="#687384">Everything is up to date.</text>
+
+<!-- bottom navigation -->
+<rect x="0" y="780" width="390" height="64" fill="#FFFFFF" stroke="#E6EBF2"/>
+<text x="58" y="807" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="19" fill="#2F67DA">⌂</text>
+<text x="58" y="827" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#2F67DA">Home</text>
+<text x="195" y="807" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="19" fill="#142034">↻</text>
+<text x="195" y="827" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#142034">Sync</text>
+<text x="332" y="807" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="19" fill="#536174">⚙</text>
+<text x="332" y="827" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#536174">Settings</text>
+<!-- screen marker -->
+<text x="366" y="765" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="9" fill="#9AA5B5">Screen 7/8</text>
+</svg>

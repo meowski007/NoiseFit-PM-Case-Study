@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+<rect width="390" height="844" fill="#F6F8FB"/>
+<!-- status bar -->
+<text x="24" y="30" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#142034">9:41</text>
+<text x="350" y="30" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="12" fill="#536174">● ● ▰</text>
+<!-- app header -->
+<rect x="0" y="48" width="390" height="70" fill="#FFFFFF"/>
+<text x="24" y="78" font-family="Inter,Arial,sans-serif" font-size="12" fill="#6B7789">NoiseFit</text>
+<text x="24" y="101" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="750" fill="#142034">Home</text>
+<text x="366" y="92" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="12" fill="#2F67DA">⌄</text>
+<!-- content -->
+
+<rect x="20" y="136" width="350" height="128" rx="18" fill="#FFFFFF" stroke="#E3E8F0"/>
+<circle cx="57" cy="176" r="18" fill="#E8F5EF"/>
+<text x="57" y="182" text-anchor="middle" font-family="Arial" font-size="16" fill="#198754">✓</text>
+<text x="88" y="170" font-family="Inter,Arial" font-size="16" font-weight="700" fill="#142034">Your data is up to date</text>
+<text x="88" y="194" font-family="Inter,Arial" font-size="12" fill="#687384">Last successful sync · Today, 9:38 AM</text>
+<text x="88" y="218" font-family="Inter,Arial" font-size="12" fill="#687384">All 4 data types synced</text>
+<text x="340" y="242" text-anchor="end" font-family="Inter,Arial" font-size="12" font-weight="700" fill="#2F67DA">View sync</text>
+<text x="20" y="298" font-family="Inter,Arial" font-size="14" font-weight="700" fill="#142034">Today's activity</text>
+<rect x="20" y="314" width="166" height="120" rx="18" fill="#FFFFFF" stroke="#E3E8F0"/>
+<text x="40" y="345" font-family="Inter,Arial" font-size="12" fill="#687384">Steps</text>
+<text x="40" y="378" font-family="Inter,Arial" font-size="27" font-weight="750" fill="#142034">7,842</text>
+<text x="40" y="404" font-family="Inter,Arial" font-size="11" fill="#198754">78% of goal</text>
+<rect x="204" y="314" width="166" height="120" rx="18" fill="#FFFFFF" stroke="#E3E8F0"/>
+<text x="224" y="345" font-family="Inter,Arial" font-size="12" fill="#687384">Sleep</text>
+<text x="224" y="378" font-family="Inter,Arial" font-size="27" font-weight="750" fill="#142034">7h 32m</text>
+<text x="224" y="404" font-family="Inter,Arial" font-size="11" fill="#687384">Last night</text>
+<rect x="20" y="454" width="350" height="112" rx="18" fill="#FFFFFF" stroke="#E3E8F0"/>
+<text x="40" y="487" font-family="Inter,Arial" font-size="12" fill="#687384">Workout</text>
+<text x="40" y="518" font-family="Inter,Arial" font-size="20" font-weight="700" fill="#142034">Morning Run</text>
+<text x="40" y="542" font-family="Inter,Arial" font-size="11" fill="#687384">32 min · 4.8 km · Synced</text>
+<rect x="286" y="493" width="62" height="30" rx="15" fill="#EEF3FF"/>
+<text x="317" y="513" text-anchor="middle" font-family="Inter,Arial" font-size="11" font-weight="700" fill="#2F67DA">Synced</text>
+
+<!-- bottom navigation -->
+<rect x="0" y="780" width="390" height="64" fill="#FFFFFF" stroke="#E6EBF2"/>
+<text x="58" y="807" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="19" fill="#2F67DA">⌂</text>
+<text x="58" y="827" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#2F67DA">Home</text>
+<text x="195" y="807" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="19" fill="#142034">↻</text>
+<text x="195" y="827" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#142034">Sync</text>
+<text x="332" y="807" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="19" fill="#536174">⚙</text>
+<text x="332" y="827" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#536174">Settings</text>
+<!-- screen marker -->
+<text x="366" y="765" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="9" fill="#9AA5B5">Screen 1/8</text>
+</svg>

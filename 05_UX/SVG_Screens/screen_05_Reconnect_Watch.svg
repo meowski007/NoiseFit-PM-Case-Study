@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+<rect width="390" height="844" fill="#F6F8FB"/>
+<!-- status bar -->
+<text x="24" y="30" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#142034">9:41</text>
+<text x="350" y="30" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="12" fill="#536174">● ● ▰</text>
+<!-- app header -->
+<rect x="0" y="48" width="390" height="70" fill="#FFFFFF"/>
+<text x="24" y="78" font-family="Inter,Arial,sans-serif" font-size="12" fill="#6B7789">NoiseFit</text>
+<text x="24" y="101" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="750" fill="#142034">Bluetooth Recovery</text>
+<text x="366" y="92" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="12" fill="#2F67DA">⌄</text>
+<!-- content -->
+
+<rect x="20" y="136" width="350" height="150" rx="18" fill="#FFFFFF" stroke="#E3E8F0"/>
+<circle cx="195" cy="175" r="27" fill="#EEF3FF"/>
+<text x="195" y="184" text-anchor="middle" font-family="Arial" font-size="24" fill="#2F67DA">⌁</text>
+<text x="195" y="220" text-anchor="middle" font-family="Inter,Arial" font-size="16" font-weight="700" fill="#142034">Reconnect your watch</text>
+<text x="195" y="244" text-anchor="middle" font-family="Inter,Arial" font-size="12" fill="#687384">We’ll guide you through a quick Bluetooth check.</text>
+<text x="20" y="320" font-family="Inter,Arial" font-size="14" font-weight="700" fill="#142034">Recovery steps</text>
+<rect x="20" y="338" width="350" height="190" rx="18" fill="#FFFFFF" stroke="#E3E8F0"/>
+<circle cx="51" cy="371" r="14" fill="#2F67DA"/><text x="51" y="376" text-anchor="middle" font-family="Arial" font-size="11" fill="#FFFFFF">1</text>
+<text x="78" y="376" font-family="Inter,Arial" font-size="12" font-weight="700" fill="#142034">Keep the watch nearby</text>
+<text x="78" y="397" font-family="Inter,Arial" font-size="11" fill="#687384">Within a few metres of your phone.</text>
+<circle cx="51" cy="432" r="14" fill="#DCE5F8"/><text x="51" y="437" text-anchor="middle" font-family="Arial" font-size="11" fill="#2F67DA">2</text>
+<text x="78" y="437" font-family="Inter,Arial" font-size="12" font-weight="700" fill="#142034">Turn Bluetooth off and on</text>
+<text x="78" y="458" font-family="Inter,Arial" font-size="11" fill="#687384">NoiseFit will check the connection again.</text>
+<circle cx="51" cy="493" r="14" fill="#DCE5F8"/><text x="51" y="498" text-anchor="middle" font-family="Arial" font-size="11" fill="#2F67DA">3</text>
+<text x="78" y="498" font-family="Inter,Arial" font-size="12" font-weight="700" fill="#142034">Reconnect</text>
+<text x="78" y="519" font-family="Inter,Arial" font-size="11" fill="#687384">We’ll confirm when your watch is found.</text>
+<rect x="20" y="550" width="350" height="48" rx="14" fill="#2F67DA"/>
+<text x="195" y="580" text-anchor="middle" font-family="Inter,Arial" font-size="13" font-weight="700" fill="#FFFFFF">Start recovery</text>
+
+<!-- bottom navigation -->
+<rect x="0" y="780" width="390" height="64" fill="#FFFFFF" stroke="#E6EBF2"/>
+<text x="58" y="807" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="19" fill="#2F67DA">⌂</text>
+<text x="58" y="827" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#2F67DA">Home</text>
+<text x="195" y="807" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="19" fill="#142034">↻</text>
+<text x="195" y="827" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#142034">Sync</text>
+<text x="332" y="807" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="19" fill="#536174">⚙</text>
+<text x="332" y="827" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#536174">Settings</text>
+<!-- screen marker -->
+<text x="366" y="765" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="9" fill="#9AA5B5">Screen 5/8</text>
+</svg>
