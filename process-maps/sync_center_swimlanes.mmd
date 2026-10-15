@@ -1,0 +1,76 @@
+flowchart TD
+    %% NoiseFit Sync Center — Cross-Functional Swimlane Workflow
+    %% Swimlanes: User, NoiseFit Mobile App, Support / Backend Services
+
+    subgraph UserLane["User (Aarav - Everyday Wearable User)"]
+        U_Open["Opens NoiseFit App / Checks Activity"]
+        U_Notice["Views Delayed/Failed Category in Sync Center"]
+        U_FixPrereq["Enables Bluetooth / Brings Watch in Proximity"]
+        U_TapAction["Taps 'Retry Sync' or 'Reconnect Watch'"]
+        U_Observe["Monitors Live Recovery Progress"]
+        U_Confirm["Views Restored Data & Timestamp Confirmation"]
+        U_Escalate["Taps 'Contact Support' with Pre-filled Log"]
+    end
+
+    subgraph AppLane["NoiseFit Mobile App (Client Experience)"]
+        A_Detect["Polls BLE Peripheral & Evaluates Sync State"]
+        A_DecideSync{"Sync Status?"}
+        A_ShowHealthy["Renders Healthy Dashboard (Watch Synced)"]
+        A_ShowPartial["Surfaces Partial/Failed Sync Card"]
+        A_Diagnose["Inspects Error Code: BLE Drop, Timeout, OS Restriction"]
+        A_Explain["Renders Human-Readable Diagnostic & Contextual CTA"]
+        A_CheckPrereq{"Prerequisites Met?"}
+        A_GuidePrereq["Prompts User: Bluetooth / Location Permissions"]
+        A_Execute["Executes Handshake & Packet Recovery Stream"]
+        A_Timer["Monitors 45s Recovery Timeout Window"]
+        A_ConfirmSuccess["Validates Received Payload Completeness"]
+        A_CheckAttempts{"Attempts >= 3?"}
+        A_ShowRetry["Renders Retry Prompt & Preserves Logs"]
+        A_ShowSupport["Renders Direct Escalation Path with Diagnostics"]
+    end
+
+    subgraph BackendLane["Support & Backend Services (Proposed Telemetry & Care)"]
+        B_IngestSync["Ingests Sync Telemetry Event (Outcome, Duration, Model)"]
+        B_TrackMetrics["Aggregates Recovery Rate & Repeat Failure Metrics"]
+        B_ReceiveTicket["Ingests Support Ticket with Attached Device Logs"]
+        B_AgentAssist["Routes Priority Ticket to Tier-2 Wearable Tech Desk"]
+    end
+
+    %% Workflow Handshakes & Interactions
+    U_Open --> A_Detect
+    A_Detect --> A_DecideSync
+
+    A_DecideSync -- Success --> A_ShowHealthy
+    A_ShowHealthy --> B_IngestSync
+
+    A_DecideSync -- Failed / Partial --> A_ShowPartial
+    A_ShowPartial --> U_Notice
+    U_Notice --> A_Diagnose
+
+    A_Diagnose --> A_Explain
+    A_Explain --> A_CheckPrereq
+
+    A_CheckPrereq -- Missing Permissions/BLE --> A_GuidePrereq
+    A_GuidePrereq --> U_FixPrereq
+    U_FixPrereq --> A_CheckPrereq
+
+    A_CheckPrereq -- Valid --> U_TapAction
+    U_TapAction --> A_Execute
+
+    A_Execute --> A_Timer
+    A_Execute --> U_Observe
+
+    A_Timer -- Payload Restored --> A_ConfirmSuccess
+    A_ConfirmSuccess --> U_Confirm
+    A_ConfirmSuccess --> B_IngestSync
+
+    A_Timer -- Timeout / Packet Failure --> A_CheckAttempts
+
+    A_CheckAttempts -- Attempts < 3 --> A_ShowRetry
+    A_ShowRetry --> U_TapAction
+
+    A_CheckAttempts -- Attempts >= 3 --> A_ShowSupport
+    A_ShowSupport --> U_Escalate
+    U_Escalate --> B_ReceiveTicket
+    B_ReceiveTicket --> B_AgentAssist
+    B_ReceiveTicket --> B_TrackMetrics
