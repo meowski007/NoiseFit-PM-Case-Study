@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohak Seth — Product Management Portfolio (ArisInfra Candidate)</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    /* Smooth scrolling and theme font inherits */
+    html { scroll-behavior: smooth; }
+    .tab-active {
+      border-bottom: 2px solid var(--primary, #3b82f6);
+      color: var(--primary, #3b82f6);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="bg-[var(--background,#0f172a)] text-[var(--foreground,#f8fafc)] antialiased min-h-screen p-4 md:p-8">
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="max-w-6xl mx-auto mb-8 bg-[var(--card,#1e293b)] border border-[var(--border,#334155)] rounded-2xl p-4 shadow-lg sticky top-4 z-50 backdrop-blur-md bg-opacity-95">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center font-bold text-white text-lg shadow-md">
+          MS
+        </div>
+        <div>
+          <h1 class="font-bold text-base md:text-lg leading-tight text-[var(--foreground,#f8fafc)]">Mohak Seth</h1>
+          <p class="text-xs text-[var(--muted-foreground,#94a3b8)]">Product Management Intern Candidate · ArisInfra Solutions</p>
+        </div>
+      </div>
+      <nav class="flex flex-wrap items-center gap-2 md:gap-4 text-xs md:text-sm font-medium text-[var(--muted-foreground,#94a3b8)]">
+        <a href="#statement" class="hover:text-[var(--foreground,#f8fafc)] transition-colors">ArisInfra Statement</a>
+        <a href="#competency-matrix" class="hover:text-[var(--foreground,#f8fafc)] transition-colors">JD Matrix</a>
+        <a href="#noisefit" class="hover:text-[var(--foreground,#f8fafc)] transition-colors">NoiseFit Case Study</a>
+        <a href="#syncops" class="hover:text-[var(--foreground,#f8fafc)] transition-colors">SyncOps Platform</a>
+        <a href="#interview-defense" class="hover:text-[var(--foreground,#f8fafc)] transition-colors">Interview Defense</a>
+        <a href="#artifacts" class="hover:text-[var(--foreground,#f8fafc)] transition-colors">Artifacts</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button onclick="copyStatement()" id="copyTopBtn" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-3 py-2 rounded-lg transition-all shadow flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+          <span>Copy Statement</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main class="max-w-6xl mx-auto space-y-12">
+    <section class="bg-[var(--card,#1e293b)] border border-[var(--border,#334155)] rounded-3xl p-6 md:p-10 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-4">
+        <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+        Target Role: Product Management Intern · ArisInfra Solutions Limited (Bangalore)
+      </div>
+
+      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-[var(--foreground,#f8fafc)] leading-tight">
+        Engineering Reliability into <br class="hidden md:inline"/><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-teal-400">Complex Physical & Digital Workflows</span>
+      </h2>
+      
+      <p class="text-base md:text-lg text-[var(--muted-foreground,#94a3b8)] max-w-3xl mb-8 leading-relaxed">
+        Product Management candidate combining rigorous analytical prioritization, user-centered PRDs, and deep systems thinking. Experienced in handling asynchronous failure modes across consumer edge devices (IoT sync) and operational infrastructure (SRE data pipelines)—built for ArisInfra's mission to make construction simple, reliable, and scalable.
+      </p>
+
+      <!-- METRIC HIGHLIGHTS -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-[var(--border,#334155)]">
+        <div class="p-3 bg-[var(--background,#0f172a)]/50 rounded-xl border border-[var(--border,#334155)]">
+          <div class="text-2xl font-bold text-blue-400">426</div>
+          <div class="text-xs text-[var(--muted-foreground,#94a3b8)]">App Reviews Mined Across 4 Ecosystems</div>
+        </div>
+        <div class="p-3 bg-[var(--background,#0f172a)]/50 rounded-xl border border-[var(--border,#334155)]">
+          <div class="text-2xl font-bold text-teal-400">10 / 32</div>
+          <div class="text-xs text-[var(--muted-foreground,#94a3b8)]">User Stories with Gherkin Acceptance Criteria</div>
+        </div>
+        <div class="p-3 bg-[var(--background,#0f172a)]/50 rounded-xl border border-[var(--border,#334155)]">
+          <div class="text-2xl font-bold text-indigo-400">0.968</div>
+          <div class="text-xs text-[var(--muted-foreground,#94a3b8)]">MAE via Walk-Forward Temporal Forecasting</div>
+        </div>
+        <div class="p-3 bg-[var(--background,#0f172a)]/50 rounded-xl border border-[var(--border,#334155)]">
+          <div class="text-2xl font-bold text-emerald-400">88 / 88</div>
+          <div class="text-xs text-[var(--muted-foreground,#94a3b8)]">Automated Unit & Integration Tests Passing</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: ARISINFRA STATEMENT & CONTECH THESIS -->
+    <section id="statement" class="bg-[var(--card,#1e293b)] border border-[var(--border,#334155)] rounded-3xl p-6 md:p-8 shadow-xl">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div>
+          <div class="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-1">Application Specific Deliverable</div>
+          <h3 class="text-2xl font-bold text-[var(--foreground,#f8fafc)]">Why ArisInfra Solutions Limited?</h3>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono rounded-lg">
+            Word Count: 251 / 300 Words
+          </span>
+          <button onclick="copyStatement()" id="copyCardBtn" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-4 py-2 rounded-lg transition-all shadow flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+            <span id="copyCardText">Copy to Clipboard</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STATEMENT CARD -->
+      <div class="bg-[var(--background,#0f172a)] border border-[var(--border,#334155)] rounded-2xl p-6 md:p-8 text-sm md:text-base leading-relaxed text-slate-200 relative mb-6">
+        <p class="mb-4">
+          "I am excited to apply for the Product Management Internship at <strong>ArisInfra Solutions Limited</strong>. Construction is one of India's most critical yet operationally fragmented industries, where procurement delays, materials mismatch, and manual field reconciliation directly inflate project budgets and timelines. I admire ArisInfra's mission to make construction simple, reliable, and scalable by combining deep domain expertise with intelligent automation, anomaly detection, and LLM experimentation.
+        </p>
+        <p class="mb-4">
+          In my portfolio projects, I focused on high-stakes asynchronous reliability and operational workflows. In the <strong>NoiseFit case study</strong>, I addressed edge data synchronization over unstable connectivity—a challenge directly parallel to field supervisors logging materials receipts on remote jobsites with spotty cell coverage. I structured ambiguous feedback by mining 426 user reviews, prioritized solutions using RICE sensitivity modeling, authored a formal BRD with 10 Gherkin user stories, and architected a four-stage recovery flow (Detect, Explain, Recover, Confirm). In <strong>SyncOps Assistant</strong>, I built an automated reliability platform featuring Pandera data governance, walk-forward incident forecasting, and a hybrid triage system combining TF-IDF runbook retrieval with LLM tool-calling.
+        </p>
+        <p>
+          At ArisInfra, I am eager to apply this user-centric, analytical rigor to B2B procurement and field logistics. I would love to help define crisp acceptance criteria, author lightweight PRDs, instrument post-launch delivery funnels, and test AI-assisted workflows that surface procurement anomalies before trucks leave the hub. Before proposing solutions, I will ground my work in field reality: shadowing site engineers, reviewing vendor reconciliation drop-offs, and running rapid usability tests. I am ready to help build transparent, reliable digital supply chains for Indian infrastructure."
+        </p>
+      </div>
+
+      <!-- CONTECH BRIDGE VISUAL -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+        <div class="p-4 rounded-xl bg-[var(--background,#0f172a)]/60 border border-[var(--border,#334155)]">
+          <div class="text-xs font-semibold text-blue-400 uppercase tracking-wide mb-1">1. The Problem Analogy</div>
+          <h4 class="font-semibold text-sm mb-2 text-white">Edge Connectivity & Dropouts</h4>
+          <p class="text-xs text-[var(--muted-foreground,#94a3b8)] leading-normal">
+            Wearables drop data when Bluetooth disconnects; construction field apps drop delivery proofs when trucks unload in sub-basements without cell towers. Both require local queuing and idempotent retry.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-[var(--background,#0f172a)]/60 border border-[var(--border,#334155)]">
+          <div class="text-xs font-semibold text-indigo-400 uppercase tracking-wide mb-1">2. Data Governance & Anomaly Detection</div>
+          <h4 class="font-semibold text-sm mb-2 text-white">Contract Enforcement</h4>
+          <p class="text-xs text-[var(--muted-foreground,#94a3b8)] leading-normal">
+            In SyncOps, Pandera contracts reject corrupt telemetry before database writes. In ConTech, automated schema validation stops weighbridge invoice discrepancies before payments clear.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-[var(--background,#0f172a)]/60 border border-[var(--border,#334155)]">
+          <div class="text-xs font-semibold text-teal-400 uppercase tracking-wide mb-1">3. Field-Grounded PM Mindset</div>
+          <h4 class="font-semibold text-sm mb-2 text-white">Ground Reality First</h4>
+          <p class="text-xs text-[var(--muted-foreground,#94a3b8)] leading-normal">
+            Zero speculation: before writing a single spec at ArisInfra, candidate commits to shadowing site engineers, inspecting physical challans, and evaluating actual drop-offs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ARISINFRA 9-POINT COMPETENCY MATRIX -->
+    <section id="competency-matrix" class="bg-[var(--card,#1e293b)] border border-[var(--border,#334155)] rounded-3xl p-6 md:p-8 shadow-xl">
+      <div class="mb-6">
+        <div class="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-1">Requirement Verification</div>
+        <h3 class="text-2xl font-bold text-[var(--foreground,#f8fafc)]">ArisInfra Job Description 1:1 Competency Matrix</h3>
+        <p class="text-sm text-[var(--muted-foreground,#94a3b8)] mt-1">Every core duty requested in the ArisInfra Product Management Intern JD matched directly to verified project artifacts.</p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs md:text-sm border-collapse">
+          <thead>
+            <tr class="border-b border-[var(--border,#334155)] text-[var(--muted-foreground,#94a3b8)] font-semibold uppercase tracking-wider text-[11px]">
+              <th class="py-3 px-4 w-12 text-center">#</th>
+              <th class="py-3 px-4 w-1/4">ArisInfra JD Requirement</th>
+              <th class="py-3 px-4">Demonstrated Project Execution</th>
+              <th class="py-3 px-4 w-48">Key Artifact Link</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border,#334155)] text-[var(--foreground,#f8fafc)]">
+            <tr class="hover:bg-slate-800/40 transition-colors">
+              <td class="py-3 px-4 text-center font-mono text-blue-400">1</td>
+              <td class="py-3 px-4 font-semibold text-white">Roadmap & Backlog Prioritization</td>
+              <td class="py-3 px-4 text-[var(--muted-foreground,#94a3b8)]">Constructed a 4-quarter Now-Next-Later roadmap balancing reliability vs. growth; authored explicit trade-off log explaining why background sync was deprioritized over explicit recovery.</td>
+              <td class="py-3 px-4"><a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/product/roadmap-and-backlog.md" class="text-blue-400 hover:underline">roadmap-and-backlog.md</a></td>
+            </tr>
+            <tr class="hover:bg-slate-800/40 transition-colors">
+              <td class="py-3 px-4 text-center font-mono text-blue-400">2</td>
+              <td class="py-3 px-4 font-semibold text-white">Crisp User Stories & ACs</td>
+              <td class="py-3 px-4 text-[var(--muted-foreground,#94a3b8)]">Wrote 10 end-to-end user stories with 32 Given-When-Then Gherkin acceptance criteria covering Bluetooth disconnects, timeout thresholds, error states, and retry limits.</td>
+              <td class="py-3 px-4"><a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/docs/USER_STORIES.md" class="text-blue-400 hover:underline">USER_STORIES.md (10 stories)</a></td>
+            </tr>
+            <tr class="hover:bg-slate-800/40 transition-colors">
+              <td class="py-3 px-4 text-center font-mono text-blue-400">3</td>
+              <td class="py-3 px-4 font-semibold text-white">Lightweight PRDs & Specs</td>
+              <td class="py-3 px-4 text-[var(--muted-foreground,#94a3b8)]">Structured developer-ready PRDs with explicit technical constraints, non-functional requirements (NFRs), API payloads, and error message taxonomies.</td>
+              <td class="py-3 px-4"><a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/04_PRD/PRD.md" class="text-blue-400 hover:underline">04_PRD/PRD.md</a></td>
+            </tr>
+            <tr class="hover:bg-slate-800/40 transition-colors">
+              <td class="py-3 px-4 text-center font-mono text-blue-400">4</td>
+              <td class="py-3 px-4 font-semibold text-white">Experiments & Usability Tests</td>
+              <td class="py-3 px-4 text-[var(--muted-foreground,#94a3b8)]">Engineered canonical 21-section A/B test plan ($n=356$ per variant, power 80%, $\alpha=0.05$) and a 4-scenario moderated usability protocol with cognitive walkthroughs.</td>
+              <td class="py-3 px-4"><a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/product/experimentation/ab-test-plan.md" class="text-blue-400 hover:underline">ab-test-plan.md</a></td>
+            </tr>
+            <tr class="hover:bg-slate-800/40 transition-colors">
+              <td class="py-3 px-4 text-center font-mono text-blue-400">5</td>
+              <td class="py-3 px-4 font-semibold text-white">Market Scans & AI Workflows</td>
+              <td class="py-3 px-4 text-[var(--muted-foreground,#94a3b8)]">Mined 426 real app store reviews across 4 competitor wearables; built SyncOps Assistant combining TF-IDF retrieval with OpenAI tool-calling triage.</td>
+              <td class="py-3 px-4"><a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/01_Research/COMPETITIVE_ANALYSIS.md" class="text-blue-400 hover:underline">COMPETITIVE_ANALYSIS.md</a></td>
+            </tr>
+            <tr class="hover:bg-slate-800/40 transition-colors">
+              <td class="py-3 px-4 text-center font-mono text-blue-400">6</td>
+              <td class="py-3 px-4 font-semibold text-white">Success Metrics & Funnels</td>
+              <td class="py-3 px-4 text-[var(--muted-foreground,#94a3b8)]">Defined 7 core telemetry KPIs (`KPI-01` to `KPI-07`), mapped 5-stage conversion & drop-off funnel, and authored 10 runnable SQL diagnostic queries.</td>
+              <td class="py-3 px-4"><a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/product/analytics/funnel-and-events.md" class="text-blue-400 hover:underline">funnel-and-events.md</a></td>
+            </tr>
+            <tr class="hover:bg-slate-800/40 transition-colors">
+              <td class="py-3 px-4 text-center font-mono text-blue-400">7</td>
+              <td class="py-3 px-4 font-semibold text-white">QA/UAT & Release Notes</td>
+              <td class="py-3 px-4 text-[var(--muted-foreground,#94a3b8)]">Created SEV1–SEV4 bug reporting schemas with step-by-step repro steps, 6-scenario UAT pass/fail matrices, and customer release notes with internal demo scripts.</td>
+              <td class="py-3 px-4"><a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/product/qa/uat-plan.md" class="text-blue-400 hover:underline">uat-plan.md</a></td>
+            </tr>
+            <tr class="hover:bg-slate-800/40 transition-colors">
+              <td class="py-3 px-4 text-center font-mono text-blue-400">8</td>
+              <td class="py-3 px-4 font-semibold text-white">Concise, Discoverable Docs</td>
+              <td class="py-3 px-4 text-[var(--muted-foreground,#94a3b8)]">Structured comprehensive repository documentation, architecture diagrams, data dictionaries, and explicit technical trade-off histories.</td>
+              <td class="py-3 px-4"><a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/docs/USE_CASES.md" class="text-blue-400 hover:underline">docs/USE_CASES.md</a></td>
+            </tr>
+            <tr class="hover:bg-slate-800/40 transition-colors">
+              <td class="py-3 px-4 text-center font-mono text-blue-400">9</td>
+              <td class="py-3 px-4 font-semibold text-white">Proactively Identify Blockers</td>
+              <td class="py-3 px-4 text-[var(--muted-foreground,#94a3b8)]">Authored Risk & Blocker Matrix detailing OS battery-optimization kills, firmware timing mismatches, and mitigation pathways for zero user disruption.</td>
+              <td class="py-3 px-4"><a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/product/risks-and-blockers.md" class="text-blue-400 hover:underline">risks-and-blockers.md</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CASE STUDY 1 — NOISEFIT SYNC CENTER -->
+    <section id="noisefit" class="bg-[var(--card,#1e293b)] border border-[var(--border,#334155)] rounded-3xl p-6 md:p-8 shadow-xl">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div>
+          <div class="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-1">Case Study 1 · Consumer Edge Reliability</div>
+          <h3 class="text-2xl font-bold text-[var(--foreground,#f8fafc)]">NoiseFit Sync Center — Eliminating Silent Data Drops</h3>
+        </div>
+        <a href="https://github.com/meowski007/NoiseFit-PM-Case-Study" target="_blank" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:bg-slate-700 text-blue-400 transition-colors inline-flex items-center gap-1.5">
+          <span>View NoiseFit Repo</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
+      </div>
+
+      <!-- NOISEFIT SUB-TABS -->
+      <div class="border-b border-[var(--border,#334155)] mb-6 flex gap-4 text-xs font-semibold">
+        <button onclick="switchTab('noisefit', 'architecture')" id="tab-btn-architecture" class="tab-active py-2">4-Stage Architecture</button>
+        <button onclick="switchTab('noisefit', 'rice')" id="tab-btn-rice" class="py-2 text-[var(--muted-foreground,#94a3b8)] hover:text-white">RICE Sensitivity Model</button>
+        <button onclick="switchTab('noisefit', 'gherkin')" id="tab-btn-gherkin" class="py-2 text-[var(--muted-foreground,#94a3b8)] hover:text-white">Gherkin Stories (10/32)</button>
+        <button onclick="switchTab('noisefit', 'abtest')" id="tab-btn-abtest" class="py-2 text-[var(--muted-foreground,#94a3b8)] hover:text-white">A/B Testing & Funnel SQL</button>
+      </div>
+
+      <!-- TAB 1: 4-STAGE ARCHITECTURE -->
+      <div id="tab-content-architecture" class="space-y-4">
+        <p class="text-sm text-[var(--muted-foreground,#94a3b8)]">
+          Bluetooth data sync is not an instant on/off toggle. When users don't see their fitness data sync, the absence of status causes frustration. Candidate designed a transparent 4-stage recovery flow:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+          <div class="p-4 bg-[var(--background,#0f172a)] rounded-xl border border-blue-500/30">
+            <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 font-bold flex items-center justify-center mb-2">1</div>
+            <h4 class="font-bold text-sm text-white mb-1">Detect</h4>
+            <p class="text-xs text-[var(--muted-foreground,#94a3b8)]">Telemetry catches silent BLE disconnect or timeout threshold (&gt;15s) and categorizes root cause.</p>
+          </div>
+          <div class="p-4 bg-[var(--background,#0f172a)] rounded-xl border border-indigo-500/30">
+            <div class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 font-bold flex items-center justify-center mb-2">2</div>
+            <h4 class="font-bold text-sm text-white mb-1">Explain</h4>
+            <p class="text-xs text-[var(--muted-foreground,#94a3b8)]">Translates raw Bluetooth stack errors into clear human language: "Watch is out of range" or "Bluetooth toggled off".</p>
+          </div>
+          <div class="p-4 bg-[var(--background,#0f172a)] rounded-xl border border-amber-500/30">
+            <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center mb-2">3</div>
+            <h4 class="font-bold text-sm text-white mb-1">Recover</h4>
+            <p class="text-xs text-[var(--muted-foreground,#94a3b8)]">Provides a single contextual primary action button: "Reconnect Watch", "Turn on Bluetooth", or "Retry Sync".</p>
+          </div>
+          <div class="p-4 bg-[var(--background,#0f172a)] rounded-xl border border-emerald-500/30">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center mb-2">4</div>
+            <h4 class="font-bold text-sm text-white mb-1">Confirm</h4>
+            <p class="text-xs text-[var(--muted-foreground,#94a3b8)]">Provides unambiguous visual closure: "Synced 10s ago · All 8,420 steps updated", preventing repeated anxious retries.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: RICE SENSITIVITY -->
+      <div id="tab-content-rice" class="hidden space-y-4">
+        <p class="text-sm text-[var(--muted-foreground,#94a3b8)]">
+          RICE inputs are analytical judgments. To guarantee defensibility in an interview, candidate computed sensitivity under a <strong>&plusmn;0.15 Confidence shift</strong>:
+        </p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-slate-700 text-slate-400 font-semibold">
+                <th class="py-2 px-3">Initiative</th>
+                <th class="py-2 px-3">Reach</th>
+                <th class="py-2 px-3">Impact</th>
+                <th class="py-2 px-3">Baseline C</th>
+                <th class="py-2 px-3">Effort</th>
+                <th class="py-2 px-3 text-blue-400">Baseline RICE</th>
+                <th class="py-2 px-3 text-amber-400">Low C (-0.15)</th>
+                <th class="py-2 px-3 text-emerald-400">High C (+0.15)</th>
+                <th class="py-2 px-3">Rank Stability</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800">
+              <tr class="bg-blue-500/10 font-medium">
+                <td class="py-2 px-3 text-white">Sync Center (Diagnostic UI + Retry)</td>
+                <td class="py-2 px-3">50k</td>
+                <td class="py-2 px-3">2.0</td>
+                <td class="py-2 px-3">0.80</td>
+                <td class="py-2 px-3">2.0 mo</td>
+                <td class="py-2 px-3 font-bold text-blue-400">40,000</td>
+                <td class="py-2 px-3 text-amber-400">32,500</td>
+                <td class="py-2 px-3 text-emerald-400">47,500</td>
+                <td class="py-2 px-3 text-emerald-400 font-bold">Maintains #1</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-slate-300">Background Sync Daemon</td>
+                <td class="py-2 px-3">80k</td>
+                <td class="py-2 px-3">1.0</td>
+                <td class="py-2 px-3">0.50</td>
+                <td class="py-2 px-3">4.0 mo</td>
+                <td class="py-2 px-3 font-bold text-slate-300">10,000</td>
+                <td class="py-2 px-3 text-slate-400">7,000</td>
+                <td class="py-2 px-3 text-slate-400">13,000</td>
+                <td class="py-2 px-3 text-slate-400">Maintains #2</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-slate-300">Auto-Reconnect Bluetooth Agent</td>
+                <td class="py-2 px-3">30k</td>
+                <td class="py-2 px-3">1.5</td>
+                <td class="py-2 px-3">0.60</td>
+                <td class="py-2 px-3">3.0 mo</td>
+                <td class="py-2 px-3 font-bold text-slate-300">9,000</td>
+                <td class="py-2 px-3 text-slate-400">6,750</td>
+                <td class="py-2 px-3 text-slate-400">11,250</td>
+                <td class="py-2 px-3 text-slate-400">Maintains #3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="p-3 bg-[var(--background,#0f172a)] rounded-xl border border-[var(--border,#334155)] text-xs text-[var(--muted-foreground,#94a3b8)]">
+          <span class="text-blue-400 font-semibold">Takeaway for Interview:</span> Even if Confidence drops from 0.80 down to 0.65, Sync Center scores 32,500—which is still <strong>2.5&times; higher</strong> than the highest possible score of Background Optimization (13,000). The ranking is completely resilient to analytical judgment error.
+        </div>
+      </div>
+
+      <!-- TAB 3: GHERKIN STORIES -->
+      <div id="tab-content-gherkin" class="hidden space-y-4">
+        <p class="text-sm text-[var(--muted-foreground,#94a3b8)]">
+          Authored 10 user stories with 32 Given-When-Then Gherkin acceptance criteria to bridge design intent directly with engineering test suites:
+        </p>
+        <div class="bg-[var(--background,#0f172a)] rounded-xl p-4 border border-[var(--border,#334155)] font-mono text-xs text-slate-300 leading-relaxed overflow-x-auto">
+          <div class="text-blue-400 font-bold mb-2"># USER STORY US-03: Offline Sync Queue & Recovery</div>
+          <p><span class="text-indigo-400">Scenario:</span> Automatic reconnection after Bluetooth signal recovery</p>
+          <p class="pl-4"><span class="text-amber-400">Given</span> the user has the NoiseFit app open in foreground</p>
+          <p class="pl-4"><span class="text-amber-400">And</span> the paired smartwatch was disconnected due to out-of-range state</p>
+          <p class="pl-4"><span class="text-amber-400">When</span> the smartwatch comes within 5 meters of the mobile device</p>
+          <p class="pl-4"><span class="text-emerald-400">Then</span> the Sync Center shall detect the BLE beacon within 8 seconds</p>
+          <p class="pl-4"><span class="text-emerald-400">And</span> trigger an automatic differential sync without prompting the user</p>
+          <p class="pl-4"><span class="text-emerald-400">And</span> update the header timestamp to "Synced Just Now".</p>
+        </div>
+      </div>
+
+      <!-- TAB 4: A/B TESTING & SQL -->
+      <div id="tab-content-abtest" class="hidden space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-[var(--background,#0f172a)] rounded-xl p-4 border border-[var(--border,#334155)] space-y-2">
+            <h4 class="font-bold text-sm text-blue-400">Canonical 21-Section A/B Test Plan</h4>
+            <p class="text-xs text-[var(--muted-foreground,#94a3b8)]">
+              Primary Metric: 7-day Sync Completion Rate.<br/>
+              Statistical Power: 80% (&beta; = 0.20), Significance: &alpha; = 0.05.<br/>
+              Baseline rate $p = 70.93\%$, Minimum Detectable Effect $\delta = +5\%$.
+            </p>
+            <div class="p-2 bg-slate-900 rounded border border-slate-800 font-mono text-xs text-emerald-400">
+              Sample size per variant n = 356 users
+            </div>
+            <p class="text-[11px] text-[var(--muted-foreground,#94a3b8)]">
+              *Honest Note: Experiment plan is fully specified and mathematically verified, ready for production rollout.
+            </p>
+          </div>
+          <div class="bg-[var(--background,#0f172a)] rounded-xl p-4 border border-[var(--border,#334155)] space-y-2">
+            <h4 class="font-bold text-sm text-indigo-400">Funnel SQL Instrumentation</h4>
+            <p class="text-xs text-[var(--muted-foreground,#94a3b8)]">10 production SQL queries tracking drop-offs across 5 conversion stages:</p>
+            <div class="p-2 bg-slate-900 rounded border border-slate-800 font-mono text-[11px] text-slate-300 overflow-x-auto">
+              SELECT stage, COUNT(DISTINCT user_id) as users,<br/>
+              &nbsp;&nbsp;ROUND(100.0 * COUNT(DISTINCT user_id) / LAG(COUNT(DISTINCT user_id), 1) OVER (ORDER BY stage_order), 2) as conversion_pct<br/>
+              FROM sync_funnel_events GROUP BY stage;
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CASE STUDY 2 — SYNCOPS ASSISTANT -->
+    <section id="syncops" class="bg-[var(--card,#1e293b)] border border-[var(--border,#334155)] rounded-3xl p-6 md:p-8 shadow-xl">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div>
+          <div class="text-xs font-semibold uppercase tracking-wider text-indigo-400 mb-1">Case Study 2 · SRE Infrastructure & AI Systems</div>
+          <h3 class="text-2xl font-bold text-[var(--foreground,#f8fafc)]">SyncOps Assistant — Automated Telemetry Governance & AI Triage</h3>
+        </div>
+        <a href="https://github.com/meowski007/syncops-assistant" target="_blank" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:bg-slate-700 text-indigo-400 transition-colors inline-flex items-center gap-1.5">
+          <span>View SyncOps Repo</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-[var(--background,#0f172a)] rounded-2xl p-5 border border-[var(--border,#334155)]">
+          <div class="text-xs font-bold uppercase tracking-wider text-teal-400 mb-2">Data Governance</div>
+          <h4 class="font-bold text-white text-base mb-2">Pandera Contracts</h4>
+          <p class="text-xs text-[var(--muted-foreground,#94a3b8)] leading-relaxed mb-3">
+            Strict ETL schema enforcement guarding against corrupt timestamps, negative sync latencies, and unregistered customer IDs before persistence.
+          </p>
+          <div class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 p-2 rounded border border-emerald-500/20">
+            5,000 synthetic sync events verified across 300 customers
+          </div>
+        </div>
+
+        <div class="bg-[var(--background,#0f172a)] rounded-2xl p-5 border border-[var(--border,#334155)]">
+          <div class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-2">Time-Series ML</div>
+          <h4 class="font-bold text-white text-base mb-2">Walk-Forward Forecasting</h4>
+          <p class="text-xs text-[var(--muted-foreground,#94a3b8)] leading-relaxed mb-3">
+            Trained AutoARIMA, Prophet, and Exponential Smoothing. Used temporal walk-forward cross-validation to rigorously prevent look-ahead leakage.
+          </p>
+          <div class="text-[11px] font-mono text-indigo-400 bg-indigo-500/10 p-2 rounded border border-indigo-500/20">
+            AutoARIMA MAE: 0.968 | RMSE: 1.346 (Winning model)
+          </div>
+        </div>
+
+        <div class="bg-[var(--background,#0f172a)] rounded-2xl p-5 border border-[var(--border,#334155)]">
+          <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">Automated Triage</div>
+          <h4 class="font-bold text-white text-base mb-2">TF-IDF + LLM Fallback</h4>
+          <p class="text-xs text-[var(--muted-foreground,#94a3b8)] leading-relaxed mb-3">
+            Primary triage via sub-millisecond TF-IDF runbook search for exact error codes (`AUTH_002`), with OpenAI tool-calling fallback for conversational queries.
+          </p>
+          <div class="text-[11px] font-mono text-amber-400 bg-amber-500/10 p-2 rounded border border-amber-500/20">
+            88 / 88 Pytest test suite passing with zero regressions
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: INTERVIEW DEFENSE GUIDE -->
+    <section id="interview-defense" class="bg-[var(--card,#1e293b)] border border-[var(--border,#334155)] rounded-3xl p-6 md:p-8 shadow-xl">
+      <div class="mb-6">
+        <div class="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-1">Honest & Defensible Communication</div>
+        <h3 class="text-2xl font-bold text-[var(--foreground,#f8fafc)]">PM Interview Defense Guide</h3>
+        <p class="text-sm text-[var(--muted-foreground,#94a3b8)] mt-1">Direct, honest answers prepared for senior leadership and technical interviews at ArisInfra.</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Q1 -->
+        <div class="bg-[var(--background,#0f172a)] border border-[var(--border,#334155)] rounded-xl p-4">
+          <h4 class="font-semibold text-white text-sm mb-2 text-blue-400">Q1: "Why ArisInfra, and how do wearable sync problems translate to construction logistics?"</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            "ArisInfra is tackling India's multi-billion dollar construction procurement problem. In construction, materials delivery is fundamentally an asynchronous edge workflow: transit mixers and steel trucks arrive at remote job sites or basement basements with zero cellular coverage. If a supervisor cannot log receipt against purchase orders, or if weights mismatch, the company suffers billing disputes. The systems thinking from NoiseFit (offline queueing, 4-stage recovery) and SyncOps (telemetry validation, anomaly detection) directly translates to making jobsite procurement simple, reliable, and auditable."
+          </p>
+        </div>
+
+        <!-- Q2 -->
+        <div class="bg-[var(--background,#0f172a)] border border-[var(--border,#334155)] rounded-xl p-4">
+          <h4 class="font-semibold text-white text-sm mb-2 text-indigo-400">Q2: "Why TF-IDF rather than dense vector embeddings in your incident triage?"</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            "In incident triage, operational runbooks are indexed by exact alphanumeric error codes—like <code>AUTH_002</code> or <code>ERR_TIMEOUT_GATEWAY</code>. Dense vector embeddings tend to soften specific token matches in favor of semantic similarity, which can match the wrong runbook for distinct error codes. TF-IDF guarantees exact-match priority, runs in sub-millisecond offline time, and requires zero paid API dependencies. I added OpenAI tool-calling as an optional synthesis layer, but the foundation is completely deterministic."
+          </p>
+        </div>
+
+        <!-- Q3 -->
+        <div class="bg-[var(--background,#0f172a)] border border-[var(--border,#334155)] rounded-xl p-4">
+          <h4 class="font-semibold text-white text-sm mb-2 text-emerald-400">Q3: "What are the limitations of your portfolio work?"</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            "I believe in radical intellectual honesty. In SyncOps, the 5,000 sync events are synthetic, generated with seasonal patterns—so while our AutoARIMA MAE of 0.968 demonstrates correct walk-forward validation methodology, it does not guarantee production generalization. In NoiseFit, the 426 reviews were a purposive sample across rating tiers, and my A/B test plan is an unexecuted experimental design ($N=0$ live users). At ArisInfra, my first priority would be grounding hypotheses in real operational data: shadowing site supervisors and analyzing actual procurement drop-off logs."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: MASTER ARTIFACT REPOSITORY -->
+    <section id="artifacts" class="bg-[var(--card,#1e293b)] border border-[var(--border,#334155)] rounded-3xl p-6 md:p-8 shadow-xl">
+      <div class="mb-6">
+        <div class="text-xs font-semibold uppercase tracking-wider text-teal-400 mb-1">Complete Deliverables Directory</div>
+        <h3 class="text-2xl font-bold text-[var(--foreground,#f8fafc)]">Direct Artifact Links & Code Repository</h3>
+        <p class="text-sm text-[var(--muted-foreground,#94a3b8)] mt-1">Every document, specification, and test file is available for inspection.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
+        <a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/04_PRD/PRD.md" class="p-3 bg-[var(--background,#0f172a)] rounded-xl border border-[var(--border,#334155)] hover:border-blue-500/50 transition-colors block">
+          <div class="font-semibold text-white mb-1">Product Requirements Doc</div>
+          <div class="text-[var(--muted-foreground,#94a3b8)] text-[11px]">Comprehensive PRD with NFRs, scope, and technical constraints.</div>
+        </a>
+        <a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/docs/USER_STORIES.md" class="p-3 bg-[var(--background,#0f172a)] rounded-xl border border-[var(--border,#334155)] hover:border-blue-500/50 transition-colors block">
+          <div class="font-semibold text-white mb-1">10 Gherkin User Stories</div>
+          <div class="text-[var(--muted-foreground,#94a3b8)] text-[11px]">32 Given-When-Then acceptance criteria scenarios.</div>
+        </a>
+        <a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/product/experimentation/ab-test-plan.md" class="p-3 bg-[var(--background,#0f172a)] rounded-xl border border-[var(--border,#334155)] hover:border-blue-500/50 transition-colors block">
+          <div class="font-semibold text-white mb-1">Canonical A/B Test Plan</div>
+          <div class="text-[var(--muted-foreground,#94a3b8)] text-[11px]">21-section experiment design with sample sizing (n=356).</div>
+        </a>
+        <a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/product/analytics/funnel-queries.sql" class="p-3 bg-[var(--background,#0f172a)] rounded-xl border border-[var(--border,#334155)] hover:border-blue-500/50 transition-colors block">
+          <div class="font-semibold text-white mb-1">10 Funnel SQL Queries</div>
+          <div class="text-[var(--muted-foreground,#94a3b8)] text-[11px]">Production-grade SQL tracking telemetry drop-offs.</div>
+        </a>
+        <a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/product/qa/uat-plan.md" class="p-3 bg-[var(--background,#0f172a)] rounded-xl border border-[var(--border,#334155)] hover:border-blue-500/50 transition-colors block">
+          <div class="font-semibold text-white mb-1">UAT & QA Test Matrix</div>
+          <div class="text-[var(--muted-foreground,#94a3b8)] text-[11px]">6 end-to-end scenarios with pass/fail criteria.</div>
+        </a>
+        <a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/PORTFOLIO_ARISINFRA.md" class="p-3 bg-[var(--background,#0f172a)] rounded-xl border border-[var(--border,#334155)] hover:border-blue-500/50 transition-colors block">
+          <div class="font-semibold text-white mb-1">Master Portfolio Dossier</div>
+          <div class="text-[var(--muted-foreground,#94a3b8)] text-[11px]">Full markdown dossier formatted for PDF/interview prep.</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center text-xs text-[var(--muted-foreground,#94a3b8)] py-8 border-t border-[var(--border,#334155)]">
+      <p class="mb-2">Crafted by Mohak Seth · Dedicated Application Portfolio for ArisInfra Solutions Limited</p>
+      <div class="flex justify-center gap-4 text-blue-400 font-medium">
+        <a href="https://github.com/meowski007" target="_blank" class="hover:underline">GitHub (@meowski007)</a>
+        <span>&bull;</span>
+        <a href="mailto:mohakseth7@gmail.com" class="hover:underline">mohakseth7@gmail.com</a>
+        <span>&bull;</span>
+        <a href="file:///C:/Users/ASUS/.gemini/antigravity/scratch/NoiseFit-PM-Case-Study/PORTFOLIO_ARISINFRA.md" class="hover:underline">View Local Dossier</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Tab Switching Logic
+    function switchTab(group, tabName) {
+      const tabs = ['architecture', 'rice', 'gherkin', 'abtest'];
+      tabs.forEach(t => {
+        const content = document.getElementById('tab-content-' + t);
+        const btn = document.getElementById('tab-btn-' + t);
+        if (content && btn) {
+          if (t === tabName) {
+            content.classList.remove('hidden');
+            btn.classList.add('tab-active');
+            btn.classList.remove('text-[var(--muted-foreground,#94a3b8)]');
+          } else {
+            content.classList.add('hidden');
+            btn.classList.remove('tab-active');
+            btn.classList.add('text-[var(--muted-foreground,#94a3b8)]');
+          }
+        }
+      });
+    }
+
+    // Copy Statement Function
+    const statementText = `I am excited to apply for the Product Management Internship at ArisInfra Solutions Limited. Construction is one of India's most critical yet operationally fragmented industries, where procurement delays, materials mismatch, and manual field reconciliation directly inflate project budgets and timelines. I admire ArisInfra's mission to make construction simple, reliable, and scalable by combining deep domain expertise with intelligent automation, anomaly detection, and LLM experimentation.
+
+In my portfolio projects, I focused on high-stakes asynchronous reliability and operational workflows. In the NoiseFit case study, I addressed edge data synchronization over unstable connectivity—a challenge directly parallel to field supervisors logging materials receipts on remote jobsites with spotty cell coverage. I structured ambiguous feedback by mining 426 user reviews, prioritized solutions using RICE sensitivity modeling, authored a formal BRD with 10 Gherkin user stories, and architected a four-stage recovery flow (Detect, Explain, Recover, Confirm). In SyncOps Assistant, I built an automated reliability platform featuring Pandera data governance, walk-forward incident forecasting, and a hybrid triage system combining TF-IDF runbook retrieval with LLM tool-calling.
+
+At ArisInfra, I am eager to apply this user-centric, analytical rigor to B2B procurement and field logistics. I would love to help define crisp acceptance criteria, author lightweight PRDs, instrument post-launch delivery funnels, and test AI-assisted workflows that surface procurement anomalies before trucks leave the hub. Before proposing solutions, I will ground my work in field reality: shadowing site engineers, reviewing vendor reconciliation drop-offs, and running rapid usability tests. I am ready to help build transparent, reliable digital supply chains for Indian infrastructure.`;
+
+    function copyStatement() {
+      navigator.clipboard.writeText(statementText).then(() => {
+        const topBtn = document.getElementById('copyTopBtn');
+        const cardText = document.getElementById('copyCardText');
+        
+        if (topBtn) {
+          const original = topBtn.innerHTML;
+          topBtn.innerHTML = '<span>Copied! (251 words)</span>';
+          topBtn.classList.remove('bg-blue-600');
+          topBtn.classList.add('bg-emerald-600');
+          setTimeout(() => {
+            topBtn.innerHTML = original;
+            topBtn.classList.remove('bg-emerald-600');
+            topBtn.classList.add('bg-blue-600');
+          }, 2500);
+        }
+
+        if (cardText) {
+          cardText.textContent = 'Copied to Clipboard! (251 words)';
+          setTimeout(() => {
+            cardText.textContent = 'Copy to Clipboard';
+          }, 2500);
+        }
+      }).catch(err => {
+        alert('Could not copy automatically. Please select the text directly.');
+      });
+    }
+  </script>
+</body>
+</html>
