@@ -15,7 +15,7 @@
 This directory (`/product/`) houses the complete, interview-ready **Product Management (PM) Portfolio Suite** for the NoiseFit Sync Reliability case study and its linked engineering platform, **SyncOps Assistant**.
 
 The portfolio demonstrates end-to-end product thinking across the entire product lifecycle:
-1. **Problem Discovery & Evidence Mining:** Mining and qualitative coding of 426 Google Play store reviews across four competing wearable ecosystems to pinpoint synchronization and Bluetooth disconnection as the primary driver of customer churn.
+1. **Problem Discovery & Evidence Mining:** Mining and qualitative coding of 426 Google Play store reviews across four competing wearable ecosystems to pinpoint synchronization and Bluetooth disconnection as the most concentrated theme among low-rating complaints.
 2. **Quantitative Opportunity Prioritization:** Applying an auditable RICE prioritization model to rank reliable sync as the top strategic priority over cosmetic and non-critical feature expansions.
 3. **Rigorous Product Definition:** Structuring a comprehensive Business Requirements Document ([`docs/BRD.md`](../docs/BRD.md)), 10 Gherkin user stories ([`docs/USER_STORIES.md`](../docs/USER_STORIES.md)), an 8-screen UX prototype ([`prototype/prototype_reference.md`](../prototype/prototype_reference.md)), and a bidirectional requirements traceability matrix ([`docs/TRACEABILITY_MATRIX.md`](../docs/TRACEABILITY_MATRIX.md)).
 4. **Product Operations & Governance:** Codifying decision trade-offs, an enterprise risk and blocker register, a Now/Next/Later roadmap, and a prioritized product backlog.

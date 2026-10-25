@@ -44,7 +44,7 @@
 - **Finding 4 (Confirm Stage):**  
   `[TO FILL AFTER REAL INTERVIEWS: How do users verify that data has returned? Do they trust silent recovery, or actively hunt through health category screens?]`
 - **Finding 5 (Emotional & Churn Impact):**  
-  `[TO FILL AFTER REAL INTERVIEWS: What is the direct emotional consequence of lost step streaks or workout logs? Does it prompt app abandonment?]`
+  `[TO FILL AFTER REAL INTERVIEWS: What is the direct emotional consequence of lost step streaks or workout logs? Does it prompt users to stop using or uninstall the app?]`
 
 ### Implications for the PRD
 > **GOVERNANCE DISCLOSURE:** To be updated based on real empirical findings. The notes below reflect initial hypothesis alignment against existing requirements.

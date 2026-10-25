@@ -150,7 +150,7 @@ To maintain standardized measurement across all test sessions, the facilitator m
 - **Level 4 (Direct Instruction / Task Fail):** If participant cannot proceed after 45 seconds, navigate to the next screen for them and mark the task outcome as **Fail**.
 
 ### Usability Issue Severity Classification
-- **Critical (Blocker):** Usability flaw prevents task completion for $\ge 30\%$ of participants; causes severe frustration or app abandonment. (Must fix before engineering sprint).
+- **Critical (Blocker):** Usability flaw prevents task completion for $\ge 30\%$ of participants; causes severe frustration or task drop-off. (Must fix before engineering sprint).
 - **Major (High):** Usability flaw causes significant delay, error, or confusion, but participant eventually completes task via workarounds. (High priority for design revision).
 - **Minor (Medium):** Slight hesitation or cosmetic misinterpretation that does not impede task success. (Backlog refinement).
 - **Cosmetic (Low):** Minor visual polish, spacing, or micro-copy suggestion.
