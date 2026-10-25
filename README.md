@@ -18,7 +18,66 @@ This repository contains the complete, recruiter-ready **Business Analysis & Pro
 
 ---
 
-## Business Analysis Documentation Suite
+## Research status
+
+To ensure complete transparency during internship and product management interviews, this repository maintains strict factual boundaries:
+- **Review Mining:** 426 Google Play store reviews were collected and coded across four wearable companion apps (NoiseFit: 96, boAt Crest: 131, Fitbit: 101, Samsung Health: 98).
+- **Opportunity Prioritization:** RICE prioritization was used to evaluate candidate problem areas, ranking synchronization reliability as the #1 strategic priority (Score: 4.08).
+- **Product Artifacts Authored:** The persona (*Aarav*), Jobs to be Done (JTBD), Business Requirements Document (BRD), 10 agile user stories with 32 Gherkin acceptance criteria, 7 core KPI specifications, an 8-screen vector UX prototype, and an A/B experimentation plan were authored.
+- **Synthetic Telemetry Baseline:** The KPI telemetry dataset (`noisefit_synthetic.db`, 8,307 sync events, 900 support tickets) is **synthetic**, created to demonstrate relational SQL analytics and measurement modeling.
+- **Experimentation Status:** The A/B testing plan is a proposed statistical validation protocol; **no A/B test has been executed on live production traffic, and no experimental results exist.**
+- **User Interviews:** Primary 1-on-1 qualitative user interviews have **not been conducted** ($N = 0$). Standardized research kits, screeners, and interview guides are created and ready for execution under [`product/research/`](./product/research/).
+- **Usability Testing:** Prototype usability tests have **not been conducted** ($N = 0$). Standardized usability task protocols and scorecards are created under [`product/usability/`](./product/usability/).
+- **Simulated Stakeholder Reviews:** Any stakeholder reviews included in this repository ([`product/reviews/simulated-stakeholder-review.md`](./product/reviews/simulated-stakeholder-review.md)) are **AI-simulated peer critiques**, not feedback from real engineers, designers, or corporate managers.
+- **Platform Separation:** **SyncOps Assistant** is a separate, functional educational reliability platform (`syncops-assistant/`). It is **not** the proposed NoiseFit "Sync Center" consumer mobile companion feature.
+
+---
+
+## Portfolio Navigation Guide
+
+For recruiters, hiring managers, and interviewers, this repository can be explored along the natural eight-step product management journey:
+
+1. **Problem Discovery:** Start with empirical customer evidence in [`01_Research/`](./01_Research/) and the 426 coded reviews in [`research/evidence_register.csv`](./research/evidence_register.csv).
+2. **Prioritization:** Review the opportunity-level RICE scoring in [`02_Prioritization/`](./02_Prioritization/) and trade-offs in [`product/trade-off-log.md`](./product/trade-off-log.md).
+3. **Requirements & Scope:** Inspect the formal Business Requirements Document in [`docs/BRD.md`](./docs/BRD.md) and 10 Gherkin user stories in [`docs/USER_STORIES.md`](./docs/USER_STORIES.md).
+4. **Proposed UX & Recovery Journey:** Walk through the 8-screen vector prototype in [`prototype/prototype_reference.md`](./prototype/prototype_reference.md) and [`05_UX/SVG_Screens/`](./05_UX/SVG_Screens/).
+5. **Metrics & Experimentation:** Evaluate the 7 core KPIs in [`docs/KPI_AND_METRICS.md`](./docs/KPI_AND_METRICS.md), synthetic SQL in [`sql/analysis_queries.sql`](./sql/analysis_queries.sql), and the statistical A/B test plan in [`product/experimentation/ab-test-plan.md`](./product/experimentation/ab-test-plan.md).
+6. **Research & Usability Validation:** Review continuous discovery kits ready for deployment in [`product/research/`](./product/research/) and [`product/usability/`](./product/usability/).
+7. **Technical Implementation:** Inspect the separate, functional **SyncOps Assistant** platform in [`syncops-assistant/`](../syncops-assistant/) and its release notes in [`product/release/release-notes.md`](./product/release/release-notes.md).
+8. **Next Steps & Strategy:** Explore the Now/Next/Later roadmap in [`product/roadmap-and-backlog.md`](./product/roadmap-and-backlog.md) and the ConTech PM statement in [`product/company-fit/construction-tech-pm-statement.md`](./product/company-fit/construction-tech-pm-statement.md).
+
+---
+
+## Product Management Master Deliverable Suite
+
+| Deliverable Area | Artifact Name & Link | Core Purpose & Scope | Status |
+|---|---|---|---|
+| **Master Index** | [`product/README.md`](./product/README.md) | Comprehensive overview and navigation matrix for all PM portfolio artifacts. | Master Guide |
+| **Strategy & Backlog** | [`product/roadmap-and-backlog.md`](./product/roadmap-and-backlog.md) | Now/Next/Later strategic roadmap linked to the 7 KPIs; prioritized MoSCoW/RICE backlog. | Proposed Roadmap |
+| **Decisions & Scoping** | [`product/trade-off-log.md`](./product/trade-off-log.md) | 6 deep product decisions detailing context, options, sacrifices, and reversal conditions. | Proposed Decisions |
+| **Risk Governance** | [`product/risks-and-blockers.md`](./product/risks-and-blockers.md) | Enterprise register tracking 16 product, engineering, data, privacy, and UX risks. | Active Governance |
+| **User Research** | [`product/research/research-plan-and-recruiting.md`](./product/research/research-plan-and-recruiting.md) | Unbiased screener, recruitment script, consent model, and participant tracking sheet ($N=5\text{--}8$). | Ready for Execution |
+|  | [`product/research/interview-guide.md`](./product/research/interview-guide.md) | 8 open-ended, non-leading behavioral questions with neutral follow-up probes. | Ready for Execution |
+|  | [`product/research/research-notes-template.md`](./product/research/research-notes-template.md) | Standardized note-taking form separating verbatim quotes from researcher interpretations. | Reusable Template |
+|  | [`product/research/affinity-mapping-template.md`](./product/research/affinity-mapping-template.md) | Inductive thematic synthesis matrix with contradiction audit and PRD implications. | Reusable Template |
+|  | [`product/research/research-summary-template.md`](./product/research/research-summary-template.md) | One-page executive research summary brief with honest $N=0$ participant accounting. | Reusable Template |
+| **Usability Testing** | [`product/usability/usability-test-plan.md`](./product/usability/usability-test-plan.md) | Test plan with think-aloud script, 5 realistic tasks, assistance tiers, and stop rules. | Ready for Execution |
+|  | [`product/usability/usability-results-template.md`](./product/usability/usability-results-template.md) | Task observation scorecard and executive usability metrics summary table. | Reusable Template |
+| **Experimentation** | [`product/experimentation/ab-test-plan.md`](./product/experimentation/ab-test-plan.md) | 21-section statistical A/B test plan: power formula, worked $n=356$ sample size, guardrails. | Proposed Plan |
+| **Telemetry & Funnel** | [`product/analytics/funnel-and-events.md`](./product/analytics/funnel-and-events.md) | 5-stage funnel telemetry specs, JSON event schemas, and drop-off analysis questions. | Telemetry Spec |
+|  | [`product/analytics/funnel-queries.sql`](./product/analytics/funnel-queries.sql) | 10 verified SQLite queries on synthetic data + proposed event-level funnel queries. | Verified SQL |
+| **Release & Demo** | [`product/release/release-notes.md`](./product/release/release-notes.md) | Verified release notes for SyncOps Assistant documenting backend, API, RAG, and UI capabilities. | Verified Platform |
+|  | [`product/release/demo-script.md`](./product/release/demo-script.md) | Time-boxed 3-minute video recording script connecting discovery, SyncOps, and prototype. | Presentation Script |
+| **Quality & UAT** | [`product/qa/bug-report-template.md`](./product/qa/bug-report-template.md) | Standard PM/QA bug report template with defined severity levels and illustrative BLE defect. | Reusable Template |
+|  | [`product/qa/uat-plan.md`](./product/qa/uat-plan.md) | Comprehensive User Acceptance Testing plan covering 6 test scenarios and exit criteria. | Planned Protocol |
+| **Peer Review** | [`product/reviews/simulated-stakeholder-review.md`](./product/reviews/simulated-stakeholder-review.md) | AI-simulated critiques from Staff Mobile Engineer, Product Designer, and Senior PM. | Simulated Review |
+|  | [`product/reviews/changelog.md`](./product/reviews/changelog.md) | Audit changelog separating created files, modified files, and proposed changes. | Active Log |
+| **Product Sense** | [`product/product-sense/sync-experience-teardown.md`](./product/product-sense/sync-experience-teardown.md) | One-page teardown of commercial wearable synchronization mechanics based on public docs. | Product Teardown |
+| **Interview Prep** | [`product/interview-prep/product-case-practice.md`](./product/interview-prep/product-case-practice.md) | 5 full product-case interview frameworks with clarifying questions and model answers. | Interview Prep |
+|  | [`product/interview-prep/project-interview-questions.md`](./product/interview-prep/project-interview-questions.md) | 10 tough defense questions covering review mining, RICE, synthetic data, and A/B testing. | Interview Prep |
+| **Industry Alignment** | [`product/company-fit/construction-tech-pm-statement.md`](./product/company-fit/construction-tech-pm-statement.md) | 200–300-word statement scaffold connecting IoT sync reliability to construction tech. | Reusable Scaffold |
+
+---
 
 | Deliverable | File Path | Scope & Focus |
 |---|---|---|
@@ -219,6 +278,42 @@ A synthetic relational database (`noisefit_synthetic.db`) with 8,307 sync events
 NoiseFit-PM-Case-Study/
 │
 ├── README.md                                  # Executive summary & portfolio master index
+│
+├── product/                                   # Product Management Artifact Suite (Upgraded)
+│   ├── README.md                              # Master PM navigation matrix & portfolio index
+│   ├── roadmap-and-backlog.md                 # Now/Next/Later roadmap & prioritized RICE backlog
+│   ├── trade-off-log.md                       # 6 architectural & product trade-off records
+│   ├── risks-and-blockers.md                  # Comprehensive risk & blocker register (16 risks)
+│   ├── research/                              # Continuous discovery & user research kit
+│   │   ├── research-plan-and-recruiting.md    # Screener, recruiting scripts, consent protocol
+│   │   ├── interview-guide.md                 # 8 non-leading behavioral questions & probes
+│   │   ├── research-notes-template.md         # Observation form separating quotes from insights
+│   │   ├── affinity-mapping-template.md       # Thematic clustering & contradiction audit
+│   │   └── research-summary-template.md       # One-page executive research brief (N=0 honest)
+│   ├── usability/                             # Prototype usability testing kit
+│   │   ├── usability-test-plan.md             # 5 realistic tasks covering the 4-stage journey
+│   │   └── usability-results-template.md      # Quantitative task scorecard & metrics summary
+│   ├── experimentation/                       # A/B experimentation upgrade
+│   │   └── ab-test-plan.md                    # 21-section statistical plan (n=356 sample derivation)
+│   ├── analytics/                             # Funnel analytics & telemetry
+│   │   ├── funnel-and-events.md               # 5-stage funnel telemetry specs & JSON schemas
+│   │   └── funnel-queries.sql                 # 10 runnable SQLite queries on synthetic telemetry
+│   ├── release/                               # Product operations & presentation
+│   │   ├── release-notes.md                   # Verified release notes for SyncOps Assistant
+│   │   └── demo-script.md                     # Time-boxed 3-minute video presentation script
+│   ├── qa/                                    # Quality assurance & delivery
+│   │   ├── bug-report-template.md             # PM/QA bug report standard with illustrative BLE bug
+│   │   └── uat-plan.md                        # User Acceptance Testing plan (6 test scenarios)
+│   ├── reviews/                               # Governance & peer review
+│   │   ├── simulated-stakeholder-review.md    # AI-simulated critiques (Eng, Design, PM)
+│   │   └── changelog.md                       # Master portfolio governance changelog
+│   ├── product-sense/                         # Commercial product teardowns
+│   │   └── sync-experience-teardown.md        # Commercial wearable teardown (Fitbit/Google Health)
+│   ├── interview-prep/                        # Interview defense & mastery
+│   │   ├── product-case-practice.md           # 5 full product-case frameworks & model answers
+│   │   └── project-interview-questions.md     # 10 likely project defense questions & model answers
+│   └── company-fit/                           # Strategic vertical alignment
+│       └── construction-tech-pm-statement.md  # 256-word ConTech PM internship statement scaffold
 │
 ├── docs/                                      # Comprehensive Business Analysis documentation
 │   ├── README.md                              # BA documentation index & recruiter guide

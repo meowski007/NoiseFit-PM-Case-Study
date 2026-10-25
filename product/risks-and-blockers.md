@@ -1,0 +1,75 @@
+# Risks & Blockers Register — NoiseFit Sync Center
+
+> **DOCUMENT CONTROL & GOVERNANCE**  
+> **Project:** NoiseFit Sync Reliability — Sync Center  
+> **Artifact:** Comprehensive Risk, Blocker & Governance Register  
+> **Status:** Active Risk Management Standard — Portfolio Governance  
+> **Date:** October 2026  
+> **Linked Artifacts:** [BRD](../docs/BRD.md) · [AOQ Governance](../docs/ASSUMPTIONS_AND_OPEN_QUESTIONS.md) · [A/B Test Plan](../experimentation/AB_TEST_PLAN.md) · [Telemetry Schema](../metrics/KPI_data_dictionary.md)
+
+---
+
+## 1. Executive Summary & Governance Principles
+
+A professional Product Manager anticipates failure modes before they manifest in production. Product development in the consumer Internet of Things (IoT) and wearable space involves tight coupling between physical hardware firmware, Bluetooth Low Energy (BLE) radio protocols, fragmented mobile operating systems, and cloud data pipelines.
+
+This register identifies, classifies, and tracks **16 critical product, engineering, data, privacy, research, and delivery risks**. Every risk is assigned an impact/likelihood rating, a designated hypothetical owner, proactive mitigations, concrete early-warning triggers, and reactive contingency plans.
+
+> **Governance Note:** Ownership roles are assigned to hypothetical cross-functional leads (e.g., `[Hypothetical: Mobile Engineering Lead]`). No real employees are named, maintaining factual integrity.
+
+---
+
+## 2. Risk Evaluation Matrix
+
+```
+       ▲ High   │  RSK-02 (Bias)      RSK-08 (Fragmentation) RSK-07 (Guardrails)
+       │        │  RSK-04 (Interviews)RSK-09 (BLE Drops)      RSK-10 (Firmware Buffer)
+LIKELI-│ Med    │  RSK-01 (Synthetic) RSK-03 (Root Causes)   RSK-11 (Auth/Tokens)
+HOOD   │        │  RSK-05 (Usability) RSK-06 (Event Ambiguity)RSK-12 (Duplicates)
+       │ Low    │  RSK-14 (Telemetry) RSK-13 (Sample Size)   RSK-15 (Privacy Leak)
+       └────────┼─────────────────────────────────────────────────────────────►
+                │        Low                   Medium                  High
+                                      I M P A C T
+```
+
+---
+
+## 3. Granular Risk & Blocker Register
+
+| Risk ID | Description & Vulnerability | Category | Likelihood | Impact | Severity / Priority | Hypothetical Owner | Proactive Mitigation Strategy | Early Warning Signal / Trigger | Reactive Contingency Plan | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **RSK-01** | **Synthetic Data Misinterpretation:** Stakeholders or evaluators mistaking the synthetic SQL telemetry dataset (`noisefit_synthetic.db`) for real production metrics or genuine Noise corporate data. | **Data / Portfolio** | Medium | Medium | **P2** | `[Hypothetical: Data Analytics Lead]` | Prominent disclaimers on every document, SQL query header, and visualization; explicit synthetic metadata tagging (`DISCLOSURE: SYNTHETIC`). | Reader or interviewer assumes baseline metrics represent official corporate performance. | Immediately point to [`docs/ASSUMPTIONS_AND_OPEN_QUESTIONS.md`](../docs/ASSUMPTIONS_AND_OPEN_QUESTIONS.md) Section A & C; clarify data was modeled to demonstrate SQL competency. | `Active Monitor` |
+| **RSK-02** | **App Store Review Selection Bias:** 426 Google Play reviews reflect extreme user sentiment (dissatisfied 1★ vs. loyal 5★), over-representing vocal complaining cohorts while under-representing passive silent users. | **User Research** | High | Medium | **P2** | `[Hypothetical: UX Researcher]` | Triangulate review mining with behavioral telemetry; perform stratified sampling across all 5 rating tiers (97 × 1★ to 106 × 5★) rather than analyzing only negative reviews. | Discrepancy between review complaint themes and actual telemetry event frequencies. | Calibrate findings via planned primary user research interviews ([`product/research/`](./research/)) before locking v2 roadmap. | `Active Monitor` |
+| **RSK-03** | **Unverified Root-Cause Assumptions:** Synthetic root-cause distribution (e.g., 20.4% battery kills, 19.8% BLE drops) may diverge from genuine hardware failure distributions in the wild. | **Engineering** | Medium | High | **P1** | `[Hypothetical: Mobile Tech Lead]` | Design error-mapping engine to be dynamic and server-configurable via remote JSON dictionary rather than hardcoded in the client APK/IPA. | High volume of unmapped fallback errors (`error_code = 'UNKNOWN'`) during internal dogfooding. | Update translation mapping remotely via Firebase Remote Config without requiring full app store release. | `Active Monitor` |
+| **RSK-04** | **Missing Primary User Interviews:** Portfolio currently lacks qualitative 1-on-1 customer interviews, meaning user mental models and emotional journeys remain unverified hypotheses. | **User Research** | High | Medium | **P2** | `[Hypothetical: Lead Product Manager]` | Author complete, production-ready research recruitment and interview kits ([`product/research/`](./research/)) ready for execution with 5–8 wearable users. | Assumptions regarding user reaction to partial sync states fail during usability testing. | Execute planned 30-minute semi-structured interviews following [`interview-guide.md`](./research/interview-guide.md). | `Pending Research` |
+| **RSK-05** | **Missing Usability Testing on Prototype:** The 8-screen UX prototype has not yet been subjected to empirical task-based usability testing with real target users. | **Product Design** | Medium | Medium | **P2** | `[Hypothetical: Lead Product Designer]` | Construct rigorous usability test protocol ([`usability-test-plan.md`](./usability/usability-test-plan.md)) with 5 realistic tasks covering Detect $\rightarrow$ Explain $\rightarrow$ Recover $\rightarrow$ Confirm. | High cognitive friction or misinterpretation during initial stakeholder reviews. | Conduct 5 usability sessions using the vector SVG prototype before engineering sprint kickoff. | `Pending Testing` |
+| **RSK-06** | **Ambiguous Funnel Event Definitions:** Differing interpretations between engineering and data teams regarding what constitutes a "sync start", "recovery", or "session timeout". | **Analytics** | Medium | High | **P1** | `[Hypothetical: Product Operations Lead]` | Codify strict mathematical operational definitions, attribution windows (15 min for recovery, 24h for support), and JSON schemas in [`metrics/KPI_data_dictionary.md`](../metrics/KPI_data_dictionary.md). | Audit reveals discrepant metric calculations between client telemetry and backend database. | Enforce centralized event tracking library (`US-09`) with schema validation tests before release. | `Mitigated` |
+| **RSK-07** | **Guardrail Metric Regressions:** Introducing persistent status polling and multi-stage retry logic could degrade app crash rates or increase device battery drain beyond acceptable limits. | **Quality Assurance** | Medium | High | **P0** | `[Hypothetical: Mobile QA Lead]` | Establish non-negotiable guardrail thresholds in A/B test plan: Crash rate delta $\le +0.05\%$; 24h battery drain delta $\le +1.0\%$. | Automated CI/CD performance tests or Canary phase shows $>1.0\%$ battery discharge increase. | Immediately trigger remote kill-switch via feature flag system; revert client to control sync experience. | `Active Monitor` |
+| **RSK-08** | **Android OEM OS Fragmentation:** Aggressive proprietary battery optimization software on popular Indian OEM smartphones (Xiaomi MIUI/HyperOS, OnePlus OxygenOS, Vivo Funtouch) terminates background sync workers. | **Engineering** | High | High | **P0** | `[Hypothetical: Android Engineering Lead]` | Implement plain-language diagnosis explaining OS battery sleep (`Scenario 03.2`); guide users through manufacturer-specific battery whitelisting menus. | Telemetry shows failure rate on Xiaomi/OnePlus devices is $>2\times$ higher than Google Pixel/Stock Android. | Provide direct contextual prompts deep-linking to system "App Battery Usage" settings upon first detected pause. | `Active Monitor` |
+| **RSK-09** | **Connectivity Fluctuation Mid-Recovery:** User initiates one-tap retry, but walks away from their watch or experiences RF interference, terminating BLE packet transfer mid-stream. | **Engineering** | High | High | **P1** | `[Hypothetical: Firmware & BLE Specialist]` | Enforce strict 45-second watchdog timer on recovery socket (`Scenario 04.3`); ensure client UI transitions gracefully to failure state without freezing or locking the BLE radio. | Socket hang reports where recovery spinner runs indefinitely without timing out. | Implement graceful client socket teardown and surface guided proximity instructions (`US-05`). | `Mitigated` |
+| **RSK-10** | **Smartwatch Firmware Buffer Constraints:** Smartwatch peripheral flash memory may overflow or clear pending packet buffers during extended phone disconnection, causing permanent data loss. | **Firmware** | Medium | High | **P1** | `[Hypothetical: Firmware Engineering Lead]` | Validate smartwatch flash memory caching specifications; enforce handshake protocol where watch does NOT purge local records until mobile client verifies CRC checksum. | Reports of zero step counts or missing days following prolonged multi-day sync delays. | Implement atomic two-phase commit: Client receives $\rightarrow$ validates checksum $\rightarrow$ sends ACK $\rightarrow$ Watch purges buffer. | `Open Question` |
+| **RSK-11** | **Authentication & OAuth Token Expiration:** User companion app authentication token expires during background synchronization, causing cloud upload failures misattributed to BLE hardware issues. | **Backend** | Medium | Medium | **P2** | `[Hypothetical: Backend Platform Lead]` | Separate local BLE watch-to-phone synchronization from phone-to-cloud backup (`FR-10`); local sync succeeds and caches data locally even if OAuth refresh fails. | Sync failures accompanied by HTTP 401 Unauthorized API responses in mobile logs. | Implement transparent background token refresh queue; never block local BLE sync on cloud authentication. | `Mitigated` |
+| **RSK-12** | **Duplicate Retry Operations & Idempotency:** Rapid repeated tapping on "Retry Sync" or automated retries re-inserting already-processed workout or step records into the local database. | **Data Platform** | Medium | High | **P1** | `[Hypothetical: Mobile Database Lead]` | Enforce unique composite constraints (`device_id + timestamp + category`) and idempotent upsert queries (`INSERT OR REPLACE INTO ...`) in local SQLite storage. | User step counts double or workout calories duplicate following multiple retry clicks. | UI disables retry button and renders spinner immediately upon first tap; database enforces strict uniqueness keys. | `Mitigated` |
+| **RSK-13** | **Insufficient Experiment Sample Size:** Eligible failure cohort during A/B test window is too small to achieve statistical significance for sub-segment analyses (e.g., specific watch models). | **Experimentation** | Low | Medium | **P2** | `[Hypothetical: Product Analyst]` | Statistical power calculation in [`product/experimentation/ab-test-plan.md`](./experimentation/ab-test-plan.md) establishes $n \approx 356$ per variant for $\text{MDE} = +10\text{pp}$; run test for 14 full days across 5,000+ active users. | Running power analysis at Day 7 indicates sample size underpowered for secondary segment splits. | Extend experiment duration from 14 to 21 days; restrict primary statistical evaluation to global cohort. | `Active Monitor` |
+| **RSK-14** | **Lack of Production Telemetry Infrastructure:** Client application emitting telemetry faster than backend ingestion pipeline can consume during morning peak sync hours (6:00 AM – 9:00 AM). | **Platform** | Low | High | **P1** | `[Hypothetical: SRE / Infrastructure Lead]` | Client-side exponential backoff and local disk batching; integration with scalable event streaming architecture modeled in **SyncOps Assistant**. | Drop in telemetry ingest rate or HTTP 429 Rate Limited responses from analytics gateway. | Throttle non-critical analytical pings; prioritize P0 sync outcome and crash events. | `Active Monitor` |
+| **RSK-15** | **Privacy & Regulatory Compliance Leakage:** Diagnostic logs compiled for customer support escalation inadvertently capturing user biometric health data, precise GPS workout routes, or PII. | **Legal / Privacy** | Low | High | **P0** | `[Hypothetical: Privacy & Compliance Counsel]` | Strict non-PII sanitization layer (`Scenario 08.2`); payload restricted strictly to hardware UUID, app version, OS build, and BLE error codes; zero health data included. | Privacy audit reveals plaintext user email or latitude/longitude coordinates in diagnostic payloads. | Implement client-side Pandera / schema validator that rejects and crashes any diagnostic payload containing prohibited keys. | `Mitigated` |
+| **RSK-16** | **Unverified Third-Party Sync Dependencies:** Google Health Connect, Apple HealthKit, or Strava API rate limits or permission revocations preventing synced data from exporting to third-party apps. | **Product** | Medium | Medium | **P2** | `[Hypothetical: Partner Integrations PM]` | Explicitly classify third-party integration pipelines as Out-of-Scope for MVP release ([`docs/BRD.md`](../docs/BRD.md#6-project-scope-boundaries)); clearly label export status in UI. | Customer complaints stating data is visible in NoiseFit but missing in Strava. | Surface contextual explanation clarifying that local NoiseFit sync succeeded and third-party cloud export is queued. | `Mitigated` |
+
+---
+
+## 4. Beginner-Friendly Explainer
+
+### What this artifact does
+This document is a formal Risk Register and Blocker Log. It identifies 16 potential points of failure across technology, data, privacy, usability, and analytics, evaluating each on likelihood and impact, and detailing actionable mitigations, warning signals, and contingencies.
+
+### Why it matters
+Senior Product Managers are distinguished by their ability to anticipate what could go wrong before writing code. Demonstrating deep awareness of real-world IoT constraints—such as Android battery management, BLE radio disconnects, database idempotency, and privacy compliance—proves that you design products for messy production realities rather than idealized slide decks.
+
+### How to use it
+- In technical interviews, reference this register when asked: *"What are the biggest technical risks with this feature?"*
+- Cite `RSK-08` (Android OEM battery management) and `RSK-12` (Duplicate retry idempotency) to demonstrate strong engineering fluency.
+- Use `RSK-01` to proactively clarify the synthetic nature of the dataset, establishing complete credibility with data science interviewers.
+
+### What I can honestly claim in an interview
+- **Can claim:** You identified, classified, and analyzed these 16 product and engineering risks, structured actionable mitigations, defined early warning triggers, and established emergency contingency procedures.
+- **Cannot claim:** You cannot claim that you led a team of real engineers or corporate legal counsel who formally signed off on this register.
