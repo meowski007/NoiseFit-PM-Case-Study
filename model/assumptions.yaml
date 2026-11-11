@@ -1,0 +1,431 @@
+# Single Source of Truth for the NoiseFit Sync Center Business Case Financial Model
+# Monetary unit for model calculations: INR Lakhs (1 Lakh = INR 100,000; 100 Lakhs = INR 1 Crore)
+# Every unverified operational input is explicitly marked status: ASSUMPTION with Low / Base / High bounds.
+# Note on Scenario Polarity:
+#   - low:  Conservative / Pessimistic business outcome (lower benefits, higher effort/cost & discount rate)
+#   - base: Expected / Central operating case
+#   - high: Optimistic business outcome (higher benefits, leaner effort/cost & lower discount rate)
+
+metadata:
+  feature_name: "NoiseFit Sync Center"
+  currency: "INR Lakhs"
+  horizon_years: 3
+  fx_note: "1 USD = INR 85 (ASSUMPTION)"
+
+parameters:
+  # ---------------------------------------------------------------------------
+  # 1. VERIFIED EXTERNAL MARKET & NOISE CORPORATE BASELINES (Fixed Constants)
+  # ---------------------------------------------------------------------------
+  - id: india_active_smartphones_m
+    category: "1. Verified Market & Company Facts"
+    label: "India Active Smartphone Base (Million)"
+    unit: "M devices"
+    low: 740.0
+    base: 740.0
+    high: 740.0
+    status: "VERIFIED_FACT"
+    source: "Counterpoint Research via Business Standard (Feb 12, 2026)"
+    notes: "Second-largest active smartphone installed base globally (14% of global base)."
+
+  - id: india_active_internet_users_m
+    category: "1. Verified Market & Company Facts"
+    label: "India Active Internet Users (Million)"
+    unit: "M users"
+    low: 958.0
+    base: 958.0
+    high: 958.0
+    status: "VERIFIED_FACT"
+    source: "IAMAI-Kantar Internet in India Report via The Hindu (Jan 29, 2026)"
+    notes: "57% rural share across India."
+
+  - id: india_smartwatch_shipments_cy24_m
+    category: "1. Verified Market & Company Facts"
+    label: "India Smartwatch Shipments CY2024 (Million)"
+    unit: "M units"
+    low: 35.0
+    base: 35.0
+    high: 35.0
+    status: "VERIFIED_FACT"
+    source: "IDC India Monthly Wearable Device Tracker CY24 via Business Standard (Feb 14, 2025)"
+    notes: "34.4% YoY decline vs CY23; ASP US$23.8."
+
+  - id: india_smartwatch_shipments_cy25_m
+    category: "1. Verified Market & Company Facts"
+    label: "India Smartwatch Shipments CY2025 (Million)"
+    unit: "M units"
+    low: 28.9
+    base: 28.9
+    high: 28.9
+    status: "VERIFIED_FACT"
+    source: "IDC India Monthly Wearable Device Tracker CY25 via FoneArena (Mar 6, 2026)"
+    notes: "17.6% YoY decline vs CY24; ASP US$26.5."
+
+  - id: noise_smartwatch_share_cy25
+    category: "1. Verified Market & Company Facts"
+    label: "Noise India Smartwatch Market Share CY2025"
+    unit: "%"
+    low: 0.266
+    base: 0.266
+    high: 0.266
+    status: "VERIFIED_FACT"
+    source: "IDC India Monthly Wearable Device Tracker CY25 via FoneArena (Mar 6, 2026)"
+    notes: "No. 1 India smartwatch brand ahead of boAt (14.1%) and Fire-Boltt (9.7%)."
+
+  - id: noise_fy25_revenue_cr
+    category: "1. Verified Market & Company Facts"
+    label: "Noise (Nexxbase) FY25 Operating Revenue (INR Cr)"
+    unit: "INR Cr"
+    low: 1048.0
+    base: 1048.0
+    high: 1048.0
+    status: "VERIFIED_FACT"
+    source: "Nexxbase Marketing Pvt. Ltd. RoC FY25 via Entrackr (Feb 10, 2026)"
+    notes: "Down 24% YoY from Rs 1,384 Cr; wearables sole operating revenue source; EBITDA Rs 18 Cr (1.67%)."
+
+  - id: noisefit_play_rating
+    category: "1. Verified Market & Company Facts"
+    label: "NoiseFit Google Play Store Rating (Android)"
+    unit: "Stars"
+    low: 4.4
+    base: 4.4
+    high: 4.4
+    status: "VERIFIED_FACT"
+    source: "Google Play Store com.noisefit listing (accessed Apr/Nov 2026)"
+    notes: "50M+ cumulative downloads; 25.6L (2.56M) reviews. iOS App Store: 4.50 stars (123,122 ratings)."
+
+  # ---------------------------------------------------------------------------
+  # 2. ADDRESSABLE USER BASE, ROLLOUT & FINANCIAL PARAMETERS (ASSUMPTIONS)
+  # ---------------------------------------------------------------------------
+  - id: active_noisefit_users_m
+    category: "2. User Base, Rollout & Discounting"
+    label: "NoiseFit Active Connected User Base (SOM)"
+    unit: "M users"
+    low: 10.0
+    base: 12.0
+    high: 14.0
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Cross-checked bottom-up: 17.1M Noise smartwatches shipped CY24-CY25 x ~60% active survival + 2023 tail."
+
+  - id: annual_base_growth_rate
+    category: "2. User Base, Rollout & Discounting"
+    label: "Annual Active Base & Shipment Growth (Y2-Y3)"
+    unit: "%"
+    low: -0.03
+    base: 0.00
+    high: 0.04
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Accounts for IDC CY25 -17.6% India smartwatch contraction stabilizing toward replacement cycle."
+
+  - id: annual_sync_failure_prevalence
+    category: "2. User Base, Rollout & Discounting"
+    label: "Annual Share of Active Users Experiencing Sync Failure"
+    unit: "%"
+    low: 0.14
+    base: 0.18
+    high: 0.22
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Conservatively attenuated from 66.6% user prevalence in repo's synthetic stress DB."
+
+  - id: rollout_y1_realization
+    category: "2. User Base, Rollout & Discounting"
+    label: "Year 1 Benefit Realization Factor (Phased Rollout)"
+    unit: "%"
+    low: 0.60
+    base: 0.70
+    high: 0.80
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Reflects ~4 wks Phase 0-3 (AB_TEST_PLAN EXP-NF-001) + staged OEM app update adoption across Y1."
+
+  - id: discount_rate
+    category: "2. User Base, Rollout & Discounting"
+    label: "Annual Discount Rate (INR Corporate Hurdle Rate)"
+    unit: "%"
+    low: 0.15
+    base: 0.12
+    high: 0.10
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Risk-adjusted INR WACC for Indian consumer hardware/app software CAPEX."
+
+  # ---------------------------------------------------------------------------
+  # 3. VALUE DRIVER 1: RETENTION & REPEAT HARDWARE UPGRADES
+  # ---------------------------------------------------------------------------
+  - id: retention_lift_annual
+    category: "3. Driver 1 - Retention & Repeat Upgrades"
+    label: "Net Annual Churn Reduction Among Failure-Affected Users"
+    unit: "%"
+    low: 0.010
+    base: 0.018
+    high: 0.025
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Attenuated from BRD +3.5pp 7-day retention hypothesis (BR-01) to net 12-month ecosystem survival."
+
+  - id: repeat_upgrade_propensity
+    category: "3. Driver 1 - Retention & Repeat Upgrades"
+    label: "Annual Repeat Hardware Upgrade Propensity (Retained Users)"
+    unit: "%"
+    low: 0.22
+    base: 0.28
+    high: 0.33
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Reflects ~2.5-3.5 yr Indian value-smartwatch replacement cadence among active NoiseFit users."
+
+  - id: hw_contribution_margin_inr
+    category: "3. Driver 1 - Retention & Repeat Upgrades"
+    label: "Gross Contribution Margin per Repeat Smartwatch (INR)"
+    unit: "INR"
+    low: 275.0
+    base: 350.0
+    high: 425.0
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Anchored to FY25 RoC Rs 1,048 Cr / 7.69M watches (~Rs 1,363 net revenue) x ~30.8% gross margin less fulfillment."
+
+  # ---------------------------------------------------------------------------
+  # 4. VALUE DRIVER 2: APP RATING PROTECTION -> STORE CONVERSION
+  # ---------------------------------------------------------------------------
+  - id: prospective_store_evaluators_m
+    category: "4. Driver 2 - App Rating & Conversion"
+    label: "Annual Prospective Buyers Evaluating App Store Rating"
+    unit: "M evaluators"
+    low: 3.5
+    base: 5.0
+    high: 6.5
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Organic smartwatch shoppers inspecting Play/App Store companion reviews pre-purchase."
+
+  - id: baseline_evaluator_cvr
+    category: "4. Driver 2 - App Rating & Conversion"
+    label: "Baseline Purchase Conversion Rate Among Evaluators"
+    unit: "%"
+    low: 0.07
+    base: 0.08
+    high: 0.09
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Baseline Noise brand conversion rate for app-store-checking prospects."
+
+  - id: rating_relative_cvr_lift
+    category: "4. Driver 2 - App Rating & Conversion"
+    label: "Relative Conversion Lift from Defending/Lifting 4.4-Star Rating"
+    unit: "%"
+    low: 0.0020
+    base: 0.0050
+    high: 0.0090
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Heavily discounted from Alchemer 3-star->4-star +89% benchmark since NoiseFit is already 4.4 stars."
+
+  # ---------------------------------------------------------------------------
+  # 5. VALUE DRIVER 3: SUPPORT TICKET DEFLECTION
+  # ---------------------------------------------------------------------------
+  - id: ticket_escalation_rate
+    category: "5. Driver 3 - Support Ticket Deflection"
+    label: "Share of Failure-Affected Users Filing a Support Ticket"
+    unit: "%"
+    low: 0.10
+    base: 0.15
+    high: 0.18
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Attenuated from repo synthetic DB where 534/900 tickets (59.3%) were sync/connectivity across 1,200 users."
+
+  - id: ticket_deflection_rate
+    category: "5. Driver 3 - Support Ticket Deflection"
+    label: "Sync & Connectivity Ticket Deflection Rate"
+    unit: "%"
+    low: 0.15
+    base: 0.25
+    high: 0.32
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Base matches BRD-NF-001 & KPI-05 target (-25% sync tickets in 60 days) via KPI-06 >70% self-service."
+
+  - id: support_cost_per_ticket_inr
+    category: "5. Driver 3 - Support Ticket Deflection"
+    label: "Blended Variable Cost per Support Ticket Saved (INR)"
+    unit: "INR"
+    low: 55.0
+    base: 75.0
+    high: 95.0
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Blended India L1 omnichannel (chat/email/WhatsApp) + L2 technical agent escalation cost per ticket."
+
+  # ---------------------------------------------------------------------------
+  # 6. VALUE DRIVER 4: REDUCED FALSE HARDWARE RETURNS / RMAS
+  # ---------------------------------------------------------------------------
+  - id: sync_attributed_rma_rate
+    category: "6. Driver 4 - Prevented False RMAs"
+    label: "Sync-Misattributed 7-Day Replacement / Warranty RMA Rate"
+    unit: "%"
+    low: 0.0035
+    base: 0.0050
+    high: 0.0070
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Sub-1% share of annual Noise shipments (~7.69M) returned as 'defective' due solely to setup/BLE sync failure."
+
+  - id: rma_prevention_share
+    category: "6. Driver 4 - Prevented False RMAs"
+    label: "Share of False-Sync RMAs Avoided via Sync Center"
+    unit: "%"
+    low: 0.12
+    base: 0.20
+    high: 0.28
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Day-1-7 guided OEM recovery resolves 'no trouble found' connectivity returns within Noise 7-day replacement window."
+
+  - id: avoided_cost_per_rma_inr
+    category: "6. Driver 4 - Prevented False RMAs"
+    label: "Avoided Net Cost per Prevented RMA (INR)"
+    unit: "INR"
+    low: 250.0
+    base: 350.0
+    high: 450.0
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Two-way reverse courier, QC bench testing, packaging & open-box refurb markdown."
+
+  # ---------------------------------------------------------------------------
+  # 7. INVESTMENT & ONGOING COSTS (PERSON-WEEKS + LOADED RATE + INFRA)
+  # ---------------------------------------------------------------------------
+  - id: pw_pm
+    category: "7. Investment & Operating Costs"
+    label: "Build Effort - Product Management"
+    unit: "Person-Weeks"
+    low: 4.0
+    base: 3.0
+    high: 2.5
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Scope finalization, PRD/metrics alignment, Phase 0-3 A/B gate signoff."
+
+  - id: pw_android
+    category: "7. Investment & Operating Costs"
+    label: "Build Effort - Android Engineering (Kotlin / BLE)"
+    unit: "Person-Weeks"
+    low: 13.0
+    base: 10.0
+    high: 8.5
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Sync Center UI, 3-retry BLE state machine, OEM battery/location guides (Android 11 vs 12+)."
+
+  - id: pw_ios
+    category: "7. Investment & Operating Costs"
+    label: "Build Effort - iOS Engineering (Swift / CoreBluetooth)"
+    unit: "Person-Weeks"
+    low: 9.5
+    base: 8.0
+    high: 7.0
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Sync Center UI, background state restoration, NSBluetoothAlwaysUsageDescription compliance."
+
+  - id: pw_firmware_ble
+    category: "7. Investment & Operating Costs"
+    label: "Build Effort - BLE Protocol & Firmware Interface"
+    unit: "Person-Weeks"
+    low: 7.5
+    base: 6.0
+    high: 5.0
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Standardized BLE error-code taxonomy & WatchBuffer telemetry handshake across Noise SKUs."
+
+  - id: pw_ux_design
+    category: "7. Investment & Operating Costs"
+    label: "Build Effort - UX / Product Design & Copy"
+    unit: "Person-Weeks"
+    low: 4.5
+    base: 4.0
+    high: 3.5
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "8-screen flow (SC-01..SC-08), plain-English diagnostics, WCAG 2.1 AA contrast & motion."
+
+  - id: pw_qa_oem_lab
+    category: "7. Investment & Operating Costs"
+    label: "Build Effort - QA & Multi-OEM Compatibility Lab"
+    unit: "Person-Weeks"
+    low: 9.5
+    base: 8.0
+    high: 6.5
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Regression matrix across Xiaomi, Samsung, Vivo, Oppo, Realme, OnePlus & iOS versions."
+
+  - id: pw_data_analytics
+    category: "7. Investment & Operating Costs"
+    label: "Build Effort - Data & Experimentation Engineering"
+    unit: "Person-Weeks"
+    low: 4.0
+    base: 3.0
+    high: 2.5
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Zero-PII telemetry schema (NFR-04), SQL KPI views, EXP-NF-001 A/B test instrumentation."
+
+  - id: pw_support_legal
+    category: "7. Investment & Operating Costs"
+    label: "Build Effort - Support Ops & DPDP Readiness"
+    unit: "Person-Weeks"
+    low: 3.5
+    base: 3.0
+    high: 2.5
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Redacted support payload ingestion (US-10), agent macros, DPDP consent notice & Play Health updates."
+
+  - id: loaded_cost_per_pw_lakhs
+    category: "7. Investment & Operating Costs"
+    label: "Blended Loaded Cost per Person-Week (INR Lakhs)"
+    unit: "INR Lakhs/pw"
+    low: 0.85
+    base: 0.75
+    high: 0.70
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "India NCR blended engineering/PM/QA/design loaded cost (~Rs 39L annualized FTE equivalent at Base)."
+
+  - id: non_labour_setup_lakhs
+    category: "7. Investment & Operating Costs"
+    label: "Non-Labour Upfront Setup (Device Lab, Usability, Legal)"
+    unit: "INR Lakhs"
+    low: 11.0
+    base: 8.0
+    high: 5.5
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Test phones/watches, Phase 0 usability incentives (N=15), external privacy/DPDP counsel signoff."
+
+  - id: annual_maint_pw
+    category: "7. Investment & Operating Costs"
+    label: "Ongoing Annual Engineering & QA Maintenance"
+    unit: "Person-Weeks/yr"
+    low: 10.0
+    base: 8.0
+    high: 6.5
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Annual Android/iOS OS permission changes, new watch SKU firmware mappings, regression QA."
+
+  - id: annual_infra_compliance_lakhs
+    category: "7. Investment & Operating Costs"
+    label: "Ongoing Annual Telemetry Infra & Compliance Audits"
+    unit: "INR Lakhs/yr"
+    low: 5.5
+    base: 4.0
+    high: 3.0
+    status: "ASSUMPTION"
+    source: "ASSUMPTION"
+    notes: "Cloud ingestion/storage for redacted non-PII diagnostic logs, log erasure automation & compliance audits."
