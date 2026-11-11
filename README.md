@@ -22,6 +22,8 @@ This repository contains the complete, recruiter-ready **Business Analysis & Pro
 
 | Deliverable | File Path | Scope & Focus |
 |---|---|---|
+| **Detailed Business Case** | [`docs/BUSINESS_CASE.md`](./docs/BUSINESS_CASE.md) | 4–6 page consulting business case: market sizing, 4 value drivers, 3-yr financials, tornado sensitivity, pricing, DPDP 2023/BLE compliance & kill criteria. |
+| **Business Case Executive One-Pager** | [`docs/BUSINESS_CASE_ONE_PAGER.md`](./docs/BUSINESS_CASE_ONE_PAGER.md) | Executive summary with headline LOW/BASE/HIGH scorecard and scenario comparison chart. |
 | **Business Requirements Document (BRD)** | [`docs/BRD.md`](./docs/BRD.md) | Business problem, objectives, scope boundaries, stakeholder RACI, `BR-01` to `BR-06`, `FR-01` to `FR-10`, and `NFR-01` to `NFR-05`. |
 | **User Stories & Acceptance Criteria** | [`docs/USER_STORIES.md`](./docs/USER_STORIES.md) | 10 user stories for persona *Aarav* with MoSCoW priorities, FR/KPI mappings, and 32 Given/When/Then Gherkin criteria. |
 | **Detailed Use Case (UC-01)** | [`docs/USE_CASES.md`](./docs/USE_CASES.md) | Comprehensive primary use case: *Recover from a Failed Sync* with happy path, 3 alternate flows, 6 exception flows, and 5 business rules. |
@@ -32,6 +34,9 @@ This repository contains the complete, recruiter-ready **Business Analysis & Pro
 | **Assumptions & Open Questions** | [`docs/ASSUMPTIONS_AND_OPEN_QUESTIONS.md`](./docs/ASSUMPTIONS_AND_OPEN_QUESTIONS.md) | 9-part governance register separating verified facts, proposed decisions, explicit assumptions, missing data, and stakeholder questions. |
 
 ### Supporting Repository Deliverables
+- **Financial Business Case Model (Excel):** [`model/business_case_model.xlsx`](./model/business_case_model.xlsx) — Dynamic 4-sheet workbook (`Assumptions`, `Calculations`, `Scenarios`, `Summary`) using live formulas.
+- **Python Model & Chart Generator:** [`model/business_case_model.py`](./model/business_case_model.py) · Assumptions: [`model/assumptions.yaml`](./model/assumptions.yaml) · Tests: [`tests/test_business_case.py`](./tests/test_business_case.py)
+- **Business Case Charts:** [`scenario_comparison.png`](./docs/images/scenario_comparison.png) · [`cashflow_projection.png`](./docs/images/cashflow_projection.png) · [`sensitivity_tornado.png`](./docs/images/sensitivity_tornado.png)
 - **Evidence Register:** [`research/evidence_register.csv`](./research/evidence_register.csv) — 426 coded Google Play reviews.
 - **Traceability Matrix CSV:** [`requirements/requirements_traceability.csv`](./requirements/requirements_traceability.csv) — Structured CSV matrix.
 - **Standalone Process Maps:**
@@ -196,11 +201,25 @@ A synthetic relational database (`noisefit_synthetic.db`) with 8,307 sync events
 
 ---
 
+## 09 — Business Case, Financial Model & Compliance
+
+Sync Center requires **₹41.75L Year 0 build investment (`45 pw`)** plus **₹10.00L/yr OpEx** and delivers **+399.6% Base 3-Year Lifecycle ROI**, **6.0-month payback**, and **₹217.53L (`₹2.18 Cr`) NPV @ 12%**.  
+Scenario range spans **-26.2% ROI / -₹34.98L NPV (Low)** to **+1,856.9% ROI / +₹829.01L NPV (High)**, led by support ticket deflection (`45.8%`) and repeat-upgrade retention (`28.7%`).  
+Recommendation: **Approve Phase 0–4 rollout (`EXP-NF-001`)** and launch **100% free for all NoiseFit users** following pre-Canary **DPDP Act 2023 & Android/iOS BLE permission** signoffs.
+
+- **Full Consulting Business Case:** [`docs/BUSINESS_CASE.md`](./docs/BUSINESS_CASE.md) · **Executive One-Pager:** [`docs/BUSINESS_CASE_ONE_PAGER.md`](./docs/BUSINESS_CASE_ONE_PAGER.md)
+- **Live Formula Excel Workbook:** [`model/business_case_model.xlsx`](./model/business_case_model.xlsx) · **Single-Source Assumptions YAML:** [`model/assumptions.yaml`](./model/assumptions.yaml)
+- **Reproducible Python Model & Pytest Suite:** [`model/business_case_model.py`](./model/business_case_model.py) · [`tests/test_business_case.py`](./tests/test_business_case.py)
+- **Generated Charts:** [`scenario_comparison.png`](./docs/images/scenario_comparison.png) · [`cashflow_projection.png`](./docs/images/cashflow_projection.png) · [`sensitivity_tornado.png`](./docs/images/sensitivity_tornado.png)
+
+---
+
 ## Skills Demonstrated
 
 | Competency Area | Tools & Frameworks Applied | Concrete Portfolio Evidence |
 |---|---|---|
 | **Requirements Elicitation** | Qualitative Review Mining, Coded Taxonomies | 426 Google Play reviews categorized across 10 themes in [`research/evidence_register.csv`](./research/evidence_register.csv). |
+| **Strategic Business Case & Finance** | 3-Yr DCF/NPV, Scenario Modeling, 1-Way Tornado Sensitivity | Dynamic Excel/Python model (`399.6%` Base ROI, `₹217.53L` NPV) in [`docs/BUSINESS_CASE.md`](./docs/BUSINESS_CASE.md) & [`model/business_case_model.xlsx`](./model/business_case_model.xlsx). |
 | **Requirements Documentation** | Formal BRD, Functional Specs, NFRs | Complete BRD (`BR-01`–`BR-06`, `FR-01`–`FR-10`, `NFR-01`–`NFR-05`) in [`docs/BRD.md`](./docs/BRD.md). |
 | **Agile User Stories** | MoSCoW Prioritization, Gherkin (Given/When/Then) | 10 user stories with 32 testable Gherkin scenarios in [`docs/USER_STORIES.md`](./docs/USER_STORIES.md). |
 | **Use Case Modeling** | Detailed Behavioral Specifications, Business Rules | End-to-end `UC-01` specification with 6 exception flows in [`docs/USE_CASES.md`](./docs/USE_CASES.md). |
@@ -222,6 +241,9 @@ NoiseFit-PM-Case-Study/
 │
 ├── docs/                                      # Comprehensive Business Analysis documentation
 │   ├── README.md                              # BA documentation index & recruiter guide
+│   ├── BUSINESS_CASE.md                       # 4-6 page consulting business case & DPDP legal review
+│   ├── BUSINESS_CASE_ONE_PAGER.md             # 1-page executive summary & scenario scorecard
+│   ├── images/                                # 300-DPI scenario, cash-flow & tornado charts
 │   ├── BRD.md                                 # Business Requirements Document (BRD-NF-001)
 │   ├── USER_STORIES.md                        # 10 User Stories with Gherkin Acceptance Criteria
 │   ├── USE_CASES.md                           # Detailed Use Case Specification (UC-01)
@@ -253,6 +275,14 @@ NoiseFit-PM-Case-Study/
 ├── sql/
 │   ├── README.md                              # Query catalog & schema documentation
 │   └── analysis_queries.sql                   # 10 standalone SQL analysis queries
+│
+├── model/
+│   ├── assumptions.yaml                       # Single source of truth assumptions & verified facts
+│   ├── business_case_model.py                 # Python financial engine, Excel generator & charts
+│   └── business_case_model.xlsx               # Live formula workbook (4 sheets)
+│
+├── tests/
+│   └── test_business_case.py                  # Pytest formula & Excel-vs-Python reconciliation checks
 │
 ├── 01_Research/                               # Original qualitative research & reviews
 ├── 02_Prioritization/                         # Original RICE opportunity prioritization
